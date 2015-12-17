@@ -28,14 +28,20 @@
         pounds: null,
         remainingMinutes: 60
       },
-      newTag: null,
+      newHop: {
+        type: null,
+        aau: null,
+        remainingMinutes: 60
+      },
       currentUser: null,
       editorOptions: {
         plugins : 'advlist autolink link image lists charmap print preview'
       },
       submit: submit,
       addMalt: addMalt,
-      removeMalt: removeMalt
+      addHop: addHop,
+      removeMalt: removeMalt,
+      removeHop: removeHop
     });
 
     function submit() {
@@ -64,8 +70,23 @@
       };
     }
 
+    function addHop() {
+      if (ctrl.newHop) {
+        ctrl.recipe.hopAdditions.push(ctrl.newHop);
+      }
+      ctrl.newHop = {
+        type: null,
+        aau: null,
+        remainingMinutes: 60
+      };
+    }
+
     function removeMalt(index) {
       ctrl.recipe.maltAdditions.splice(index, 1);
+    }
+
+    function removeHop(index) {
+      ctrl.recipe.hopAdditions.splice(index, 1);
     }
 
     $scope.$watch(userService.currentUser, function(newValue) {
