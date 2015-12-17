@@ -10,26 +10,23 @@
     var ctrl = this;
 
     angular.extend(ctrl, {
-      person: {
-        isActive: true,
-        balance: 0,
-        picture: 'http://placehold.it/32x32',
-        age: 0,
-        eyeColor: null,
+      recipe: {
         name: null,
-        gender: null,
-        company: null,
-        email: null,
-        phone: null,
-        address: null,
-        about: null,
-        registered: null,
-        latitude: 0,
-        longitude: 0,
-        tags: [],
-        friends: [],
-        greeting: null,
-        favoriteFruit: null
+        source: null,
+        description: null,
+        type: null,
+        subtype: null,
+        originalGravity: 0,
+        boilTime: 60,
+        maltAdditions: [],
+        hopAdditions: [],
+        yeast: null
+      },
+      newMalt: {
+        iri: null,
+        label: null,
+        pounds: null,
+        remainingMinutes: 60
       },
       newTag: null,
       currentUser: null,
@@ -37,16 +34,16 @@
         plugins : 'advlist autolink link image lists charmap print preview'
       },
       submit: submit,
-      addTag: addTag,
-      removeTag: removeTag
+      addMalt: addMalt,
+      removeMalt: removeMalt
     });
 
     function submit() {
-      mlRest.createDocument(ctrl.person, {
+      mlRest.createDocument(ctrl.recipe, {
         format: 'json',
         directory: '/content/',
         extension: '.json',
-        collection: ['data', 'data/people']
+        collection: ['data', 'data/recipe']
         // TODO: add read/update permissions here like this:
         // 'perm:sample-role': 'read',
         // 'perm:sample-role': 'update'
@@ -55,15 +52,20 @@
       });
     }
 
-    function addTag() {
-      if (ctrl.newTag && ctrl.newTag !== '' && ctrl.person.tags.indexOf(ctrl.newTag) < 0) {
-        ctrl.person.tags.push(ctrl.newTag);
+    function addMalt() {
+      if (ctrl.newMalt) {
+        ctrl.recipe.maltAdditions.push(ctrl.newMalt);
       }
-      ctrl.newTag = null;
+      ctrl.newMalt = {
+        iri: null,
+        label: null,
+        pounds: null,
+        remainingMinutes: 60
+      };
     }
 
-    function removeTag(index) {
-      ctrl.person.tags.splice(index, 1);
+    function removeMalt(index) {
+      ctrl.recipe.maltAdditions.splice(index, 1);
     }
 
     $scope.$watch(userService.currentUser, function(newValue) {
