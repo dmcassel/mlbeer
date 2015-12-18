@@ -1,0 +1,78 @@
+@prefix bjcp: <http://davidcassel.net/bjcp/guidelines/2015#> .
+@prefix dcbeer: <http://davidcassel.net/beer#> .
+@prefix malt: <http://davidcassel.net/beer/malt#> .
+@prefix hops: <http://davidcassel.net/beer/hops#> .
+@prefix yeast: <http://davidcassel.net/beer/yeast#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcbeer:clermont-scottish-ale rdfs:label "Clermont Scottish Ale" ;
+                             rdfs:type bjcp:ScottishLight ;
+                             rdfs:seeAlso "https://byo.com/cider/item/1756-clermont-scottish-ale" ;
+                             dcbeer:original-gravity 1.032 ;
+                             dcbeer:boil-time 90 ;
+                             dcbeer:malt-addition malt:clermont-scottish-ale-malt-1 ;
+                             dcbeer:malt-addition malt:clermont-scottish-ale-malt-2 ;
+                             dcbeer:malt-addition malt:clermont-scottish-ale-malt-3 ;
+                             dcbeer:malt-addition malt:clermont-scottish-ale-malt-4 ;
+                             dcbeer:adjunct malt:clermont-scottish-ale-adjunct ;
+                             dcbeer:hop-addition hops:clermont-scottish-ale-hop-1 ;
+                             dcbeer:hop-addition hops:clermont-scottish-ale-hop-2 ;
+                             dcbeer:hop-addition hops:clermont-scottish-ale-hop-3 ;
+                             dcbeer:yeast yeast:wyeast-1056 ;
+                             dcbeer:fining-addition dcbeer:clermont-scottish-ale-fining-1 .
+
+malt:clermont-scottish-ale-malt-1 malt:name malt:pale-ale ;
+                                  malt:pounds 5 ;
+                                  malt:remaining-minutes 90 .
+
+malt:clermont-scottish-ale-malt-2 malt:name malt:pilsner ;
+                                  malt:pounds 2 ;
+                                  malt:remaining-minutes 90 .
+
+malt:clermont-scottish-ale-malt-3 malt:name malt:crystal-60 ;
+                                  malt:pounds 0.5 ;
+                                  malt:remaining-minutes 90 .
+
+malt:clermont-scottish-ale-malt-4 malt:name malt:crystal-120 ;
+                                  malt:pounds 0.5 ;
+                                  malt:remaining-minutes 90 .
+
+malt:clermont-scottish-ale-adjunct-1 malt:name malt:flaked-wheat ;
+                                     malt:pounds 1 ;
+                                     malt:remaining-minutes 90 .
+
+hops:clermont-scottish-ale-hop-1 hops:name hops:tettnang ;
+                                 hops:aau 1.5 ;
+                                 hops:remaining-minutes: 90 .
+
+hops:clermont-scottish-ale-hop-1 hops:name hops:northern-brewer ;
+                                 hops:aau 3.5 ;
+                                 hops:remaining-minutes: 45 .
+
+hops:clermont-scottish-ale-hop-1 hops:name hops:tettnang ;
+                                 hops:aau 3 ;
+                                 hops:remaining-minutes: 30 .
+
+malt:pale-ale rdfs:label "Pale Ale" .
+malt:pilsner rdfs:label "Pilsner" .
+malt:crystal-60 rdfs:label "Crystal (60° L)" .
+malt:crystal-120 rdfs:label "Crystal (120° L)" .
+malt:flaked-wheat rdfs:label "Flaked Wheat" .
+
+hops:tettnang rdfs:label "Tettnang" ;
+              hops:grown "DE" ;
+              hops:grown "US" .
+
+hops:northern-brewer rdfs:label "Northern Brewer" ;
+                     hops:grown "DE" ;
+                     hops:grown "US" .
+
+yeast:wyeast-1056 rdfs:label "Wyeast 1056 (American Ale)" ;
+                  yeast:maker "Wyeast" ;
+                  yeast:strain 1056 ;
+                  yeast:type yeast:american-ale .
+
+dcbeer:clermont-scottish-ale-fining-1 dcbeer:fining-with dcbeer:irish-moss ;
+                                      dcbeer:fining-unit dcbeer:tsp ;
+                                      dcbeer:fining-amount 0.75 ;
+                                      dcbeer:remaining-minutes 15 .

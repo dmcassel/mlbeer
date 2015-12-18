@@ -1,0 +1,23 @@
+@prefix malt: <http://davidcassel.net/bjcp/guidelines/2015#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+malt:pale-ale rdfs:subClassOf malt:Malt ;
+              malt:lovibond 1.8 ;
+              rdfs:label "Pale Ale" .
+
+malt:pilsner rdfs:subClassOf malt:Malt ;
+             malt:lovibond 1.5 ;
+              rdfs:label "Pilsner" .
+
+malt:crystal-60 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 60 ;
+                rdfs:label "Crystal (60L°)" .
+
+malt:crystal-120 rdfs:subClassOf malt:Malt ;
+                 malt:lovibond 120 ;
+                 rdfs:label "Crystal (120L°)" .
+
+malt:flaked-wheat rdfs:subClassOf malt:Malt ;
+                  malt:lovibond 2 ;
+                  rdfs:label "Flaked Wheat" .
+

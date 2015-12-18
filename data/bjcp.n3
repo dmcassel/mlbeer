@@ -1,0 +1,236 @@
+@prefix bjcp: <http://davidcassel.net/bjcp/guidelines/2015#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+bjcp:StandardAmericanBeer rdfs:subClassOf bjcp:Beer ;
+                          bjcp:type 1 ;
+                          rdfs:label "Standard American Beer" .
+
+bjcp:AmericanLightLager rdfs:subClassOf bjcp:StandardAmericanBeer ;
+                        bjcp:sub-type "A" ;
+                        rdfs:label "American Light Lager" .
+
+bjcp:AmericanLager rdfs:subClassOf bjcp:StandardAmericanBeer ;
+                   bjcp:sub-type "B" ;
+                   rdfs:label "American Lager" .
+
+bjcp:CreamAle rdfs:subClassOf bjcp:StandardAmericanBeer ;
+              bjcp:sub-type "C" ;
+              rdfs:label "Cream Ale" .
+
+bjcp:AmericanWheatBeer rdfs:subClassOf bjcp:StandardAmericanBeer ;
+                       bjcp:sub-type "D" ;
+              rdfs:label "American Wheat Beer" .
+
+bjcp:InternationalLager rdfs:subClassOf bjcp:Beer ;
+                        bjcp:type 2 ;
+                        rdfs:label "International Lager" .
+
+bjcp:InternationalPaleLager rdfs:subClassOf bjcp:InternationalLager ;
+                            bjcp:sub-type "A" ;
+                            rdfs:label "International Pale Lager" .
+
+bjcp:InternationalAmberLager rdfs:subClassOf bjcp:InternationalLager ;
+                             bjcp:sub-type "B" ;
+                             rdfs:label "International Amber Lager" .
+
+bjcp:InternationalDarkLager rdfs:subClassOf bjcp:InternationalLager ;
+                            bjcp:sub-type "C" ;
+                            rdfs:label "International Dark Lager" .
+
+bjcp:CzechLager rdfs:subClassOf bjcp:Beer ;
+                bjcp:type 3 ;
+                rdfs:label "Czech Lager" .
+
+bjcp:CzechPaleLager rdfs:subClassOf bjcp:CzechLager ;
+                    bjcp:sub-type "A" ;
+                    rdfs:label "Czech Pale Lager" .
+
+bjcp:CzechPremiumPaleLager rdfs:subClassOf bjcp:CzechLager ;
+                           bjcp:sub-type "B" ;
+                           rdfs:label "Czech Premium Pale Lager" .
+
+bjcp:CzechAmberLager rdfs:subClassOf bjcp:CzechLager ;
+                     bjcp:sub-type "C" ;
+                     rdfs:label "Czech Amber Lager" .
+
+bjcp:CzechDarkLager rdfs:subClassOf bjcp:CzechLager ;
+                    bjcp:sub-type "D" ;
+                    rdfs:label "Czech Dark Lager" .
+
+bjcp:PaleMaltyEuropeanLager rdfs:subClassOf bjcp:Beer ;
+                            bjcp:type 4 ;
+                            rdfs:label "Pale Malty European Lager" .
+
+bjcp:MunichHelles rdfs:subClassOf bjcp:PaleMaltyEuropeanLager ;
+                  bjcp:sub-type "A" ;
+                  rdfs:label "Munich Helles" .
+
+bjcp:Festbier rdfs:subClassOf bjcp:PaleMaltyEuropeanLager ;
+              bjcp:sub-type "B" ;
+              rdfs:label "Festbier" .
+
+bjcp:HellesBock rdfs:subClassOf bjcp:PaleMaltyEuropeanLager ;
+                bjcp:sub-type "C" ;
+                rdfs:label "Helles Bock" .
+
+bjcp:PaleBitterEuropeanBeer rdfs:subClassOf bjcp:Beer ;
+                            bjcp:type 5 ;
+                            rdfs:label "Pale Bitter European Beer" .
+
+bjcp:GermanLeichtbier rdfs:subClassOf bjcp:PaleBitterEuropeanBeer ;
+                      bjcp:sub-type "A" ;
+                      rdfs:label "German Leichtbier" .
+
+bjcp:Kölsch rdfs:subClassOf bjcp:PaleBitterEuropeanBeer ;
+            bjcp:sub-type "B" ;
+            rdfs:label "Kölsch" .
+
+bjcp:GermanHellesExportbier rdfs:subClassOf bjcp:PaleBitterEuropeanBeer ;
+            bjcp:sub-type "C" ;
+            rdfs:label "German Helles Exportbier" .
+
+bjcp:GermanPils rdfs:subClassOf bjcp:PaleBitterEuropeanBeer ;
+            bjcp:sub-type "D" ;
+            rdfs:label "German Pils" .
+
+bjcp:AmberMaltyEuropeanLager rdfs:subClassOf bjcp:Beer ;
+                             bjcp:type 6 ;
+                             rdfs:label "Amber Malty European Lager" .
+
+bjcp:Märzen rdfs:subClassOf bjcp:AmberMaltyEuropeanLager ;
+            bjcp:sub-type "A" ;
+            rdfs:label "Märzen" .
+
+bjcp:Rauchbier rdfs:subClassOf bjcp:AmberMaltyEuropeanLager ;
+               bjcp:sub-type "B" ;
+               rdfs:label "Rauchbier" .
+
+bjcp:DunklesBock rdfs:subClassOf bjcp:AmberMaltyEuropeanLager ;
+                 bjcp:sub-type "C" ;
+                 rdfs:label "Dunkles Bock" .
+
+bjcp:AmberBitterEuropeanBeer rdfs:subClassOf bjcp:Beer ;
+                             bjcp:type 7 ;
+                             rdfs:label "Amber Bitter European Beer" .
+
+bjcp:ViennaLager rdfs:subClassOf bjcp:AmberBitterEuropeanBeer ;
+                 bjcp:sub-type "A" ;
+                 rdfs:label "Vienna Lager" .
+
+bjcp:Altbier rdfs:subClassOf bjcp:AmberBitterEuropeanBeer ;
+             bjcp:sub-type "B" ;
+             rdfs:label "Altbier" .
+
+bjcp:Kellerbier rdfs:subClassOf bjcp:AmberBitterEuropeanBeer ;
+                bjcp:sub-type "C" ;
+                rdfs:label "Kellerbier" .
+
+bjcp:DarkEuropeanLager rdfs:subClassOf bjcp:Beer ;
+                       bjcp:type 8 ;
+                       rdfs:label "Dark European Lager" .
+
+bjcp:MunichDunkel rdfs:subClassOf bjcp:DarkEuropeanLager ;
+                  bjcp:sub-type "A" ;
+                  rdfs:label "Munich Dunkel" .
+
+bjcp:Schwarzbier rdfs:subClassOf bjcp:DarkEuropeanLager ;
+                 bjcp:sub-type "B" ;
+                 rdfs:label "Schwarzbier" .
+
+bjcp:StrongEuropeanBeer rdfs:subClassOf bjcp:Beer ;
+                       bjcp:type 9 ;
+                       rdfs:label "Strong European Beer" .
+
+bjcp:Doppelbock rdfs:subClassOf bjcp:StrongEuropeanBeer ;
+                bjcp:sub-type "A" ;
+                rdfs:label "Doppelbock" .
+
+bjcp:Eisbock rdfs:subClassOf bjcp:StrongEuropeanBeer ;
+             bjcp:sub-type "B" ;
+             rdfs:label "Eisbock" .
+
+bjcp:BalticPorter rdfs:subClassOf bjcp:StrongEuropeanBeer ;
+                  bjcp:sub-type "C" ;
+                  rdfs:label "Baltic Porter" .
+
+bjcp:GermanWheatBeer rdfs:subClassOf bjcp:Beer ;
+                     bjcp:type 10 ;
+                     rdfs:label "German Wheat Beer" .
+
+bjcp:Weissbier rdfs:subClassOf bjcp:GermanWheatBeer ;
+                  bjcp:sub-type "A" ;
+                  rdfs:label "Weissbier" .
+
+bjcp:DunklesWeissbier rdfs:subClassOf bjcp:GermanWheatBeer ;
+                  bjcp:sub-type "B" ;
+                  rdfs:label "Dunkles Weissbier" .
+
+bjcp:Weizenbock rdfs:subClassOf bjcp:GermanWheatBeer ;
+                bjcp:sub-type "C" ;
+                rdfs:label "Weizenbock" .
+
+bjcp:BritishBitter rdfs:subClassOf bjcp:Beer ;
+                   bjcp:type 11 ;
+                   rdfs:label "British Bitter" .
+
+bjcp:OrdinaryBitter rdfs:subClassOf bjcp:BritishBitter ;
+                    bjcp:sub-type "A" ;
+                    rdfs:label "Ordinary Bitter" .
+
+bjcp:BestBitter rdfs:subClassOf bjcp:BritishBitter ;
+                bjcp:sub-type "B" ;
+                rdfs:label "Best Bitter" .
+
+bjcp:StrongBitter rdfs:subClassOf bjcp:BritishBitter ;
+                bjcp:sub-type "C" ;
+                rdfs:label "Strong Bitter" .
+
+bjcp:PaleCommonwealthBeer rdfs:subClassOf bjcp:Beer ;
+                   bjcp:type 12 ;
+                   rdfs:label "Pale Commonwealth Beer" .
+
+bjcp:BritishGoldenAle rdfs:subClassOf bjcp:PaleCommonwealthBeer ;
+                      bjcp:sub-type "A" ;
+                      rdfs:label "British Golden Ale" .
+
+bjcp:AustralianSparklingAle rdfs:subClassOf bjcp:PaleCommonwealthBeer ;
+                            bjcp:sub-type "B" ;
+                            rdfs:label "Australian Sparkling Ale" .
+
+bjcp:EnglishIPA rdfs:subClassOf bjcp:PaleCommonwealthBeer ;
+                bjcp:sub-type "C" ;
+                rdfs:label "English IPA" .
+
+bjcp:BrownBritishBeer rdfs:subClassOf bjcp:Beer ;
+                   bjcp:type 13 ;
+                   rdfs:label "Brown British Beer" .
+
+bjcp:DarkMild rdfs:subClassOf bjcp:BrownBritishBeer ;
+              bjcp:sub-type "A" ;
+              rdfs:label "Dark Mild" .
+
+bjcp:BritishBrownAle rdfs:subClassOf bjcp:BrownBritishBeer ;
+                     bjcp:sub-type "B" ;
+                     rdfs:label "British Brown Ale" .
+
+bjcp:EnglishPorter rdfs:subClassOf bjcp:BrownBritishBeer ;
+                   bjcp:sub-type "C" ;
+                   rdfs:label "English Porter" .
+
+bjcp:ScottishAle rdfs:subClassOf bjcp:Beer ;
+                 bjcp:type 14 ;
+                 rdfs:label "Scottish Ale" .
+
+bjcp:ScottishLight rdfs:subClassOf bjcp:ScottishAle ;
+                   bjcp:subtype "A" ;
+                   rdfs:label "Scottish Light" .
+
+bjcp:ScottishHeavy rdfs:subClassOf bjcp:ScottishAle ;
+                   bjcp:subtype "B" ;
+                   rdfs:label "Scottish Heavy" .
+
+bjcp:ScottishExport rdfs:subClassOf bjcp:ScottishAle ;
+                   bjcp:subtype "C" ;
+                   rdfs:label "Scottish Export" .
+
