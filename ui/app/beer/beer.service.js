@@ -7,15 +7,6 @@
   BeerService.$inject = ['$rootScope', '$http', '$q'];
   function BeerService($rootScope, $http, $q) {
 
-    var styles = null;
-
-    function loadStyles() {
-      return $http({
-        method: 'GET',
-        url: '/api/beer/styles'
-      });
-    }
-
     function getStyles() {
       return $http({
         method: 'GET',
@@ -23,12 +14,15 @@
       });
     }
 
-    function getSubtypes(type) {
+    function getMalts() {
+      return $http({
+        method: 'GET',
+        url: '/api/beer/malts'
+      });
     }
-
     return {
       getStyles: getStyles,
-      getSubtypes: getSubtypes
+      getMalts: getMalts,
     };
   }
 }());

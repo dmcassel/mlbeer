@@ -49,6 +49,11 @@
       ctrl.beerStyles = response.data;
     });
 
+    beerService.getMalts().then(function(response){
+      ctrl.malts = response.data;
+    });
+
+
     function submit() {
       mlRest.createDocument(ctrl.recipe, {
         format: 'json',

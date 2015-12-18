@@ -51,7 +51,9 @@
       <div class="col-sm-10">
         <input type="number" ng-model="ctrl.newMalt.pounds"/>
         <span> pounds of </span>
-        <input type="text" ng-model="ctrl.newMalt.label"/>
+        <select ng-model="ctrl.newMalt.iri">
+          <option ng-repeat="(iri, label) in ctrl.malts" value="{{iri}}">{{label}}</option>
+        </select>
         <span> with </span>
         <input type="number" ng-model="ctrl.newMalt.remainingMinutes"/>
         <span> minutes remaining</span>
@@ -59,7 +61,7 @@
       </div>
       <div class="col-sm-10 col-sm-offset-2">
         <div class="tag btn btn-info" ng-repeat="malt in ctrl.recipe.maltAdditions">
-          <span>{{malt.pounds}} pounds of {{malt.label}} with {{malt.remainingMinutes}} minutes remaining</span>
+          <span>{{malt.pounds}} pounds of {{ctrl.malts[malt.iri]}} with {{malt.remainingMinutes}} minutes remaining</span>
           <span class="glyphicon glyphicon-remove-circle" ng-click="ctrl.removeMalt($index)"></span>
         </div>
       </div>
