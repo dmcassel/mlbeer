@@ -140,6 +140,13 @@ router.get('/beer/styles', function(req, res) {
   });
 });
 
+router.get('/beer/malts', function(req, res) {
+  console.log('requested /beer/malts');
+  beer.loadMalts().then(function(malts){
+    res.send(malts);
+  });
+});
+
 router.get('/*', four0four.notFoundMiddleware);
 
 function noCache(response){

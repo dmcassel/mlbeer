@@ -16,6 +16,37 @@ function setOptions(options) {
     });
 }
 
+function loadMalts() {
+  'use strict';
+
+  var query =
+    'PREFIX malt: <http://davidcassel.net/bjcp/guidelines/2015#>' +
+    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
+
+    'select ?malt ?label ' +
+    'where {' +
+    '  ?malt rdfs:subClassOf malt:Malt ;' +
+    '        rdfs:label ?label' +
+    '}';
+
+  var malts = new Promise(
+    function(resolve, reject) {
+      db.graphs.sparql('application/sparql-results+json', query).result()
+        .then(function(triples) {
+          var malts = {};
+          triples.results.bindings.forEach(function(malt) {
+            malts[malt.malt.value] = malt.label.value;
+          });
+          resolve(malts);
+        })
+        .catch(function(error){
+          reject(error);
+        });
+    });
+
+  return malts;
+}
+
 function loadStyles() {
   'use strict';
 
@@ -58,6 +89,7 @@ function loadStyles() {
         })
         .catch(function(error) {
           console.log('error! ' + error);
+          reject(error);
         });
     }
   );
@@ -67,5 +99,6 @@ function loadStyles() {
 
 module.exports = {
   setOptions: setOptions,
-  loadStyles: loadStyles
+  loadStyles: loadStyles,
+  loadMalts: loadMalts
 };
