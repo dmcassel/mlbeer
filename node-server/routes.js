@@ -6,6 +6,7 @@ var router = require('express').Router();
 var four0four = require('./utils/404')();
 var http = require('http');
 var config = require('../gulp.config')();
+var beer = require('./beer');
 
 var options = {
   appPort: process.env.APP_PORT || config.defaultPort,
@@ -14,6 +15,8 @@ var options = {
   defaultUser: process.env.ML_APP_USER || config.marklogic.user,
   defaultPass: process.env.ML_APP_PASS || config.marklogic.password
 };
+
+beer.setOptions(options);
 
 router.get('/user/status', function(req, res) {
   var headers = req.headers;
@@ -128,6 +131,13 @@ router.get('/user/logout', function(req, res) {
   noCache(res);
   delete req.session.user;
   res.send();
+});
+
+router.get('/beer/styles', function(req, res) {
+  console.log('requested /beer/styles');
+  beer.loadStyles().then(function(styles){
+    res.send(styles);
+  });
 });
 
 router.get('/*', four0four.notFoundMiddleware);
