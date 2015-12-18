@@ -4,9 +4,9 @@
   angular.module('app.create')
     .controller('CreateCtrl', CreateCtrl);
 
-  CreateCtrl.$inject = ['$scope', 'MLRest', '$state', 'userService'];
+  CreateCtrl.$inject = ['$scope', 'MLRest', '$state', 'userService', 'beerService'];
 
-  function CreateCtrl($scope, mlRest, $state, userService) {
+  function CreateCtrl($scope, mlRest, $state, userService, beerService) {
     var ctrl = this;
 
     angular.extend(ctrl, {
@@ -14,7 +14,7 @@
         name: null,
         source: null,
         description: null,
-        type: null,
+        style: null,
         subtype: null,
         originalGravity: 0,
         boilTime: 60,
@@ -41,7 +41,12 @@
       addMalt: addMalt,
       addHop: addHop,
       removeMalt: removeMalt,
-      removeHop: removeHop
+      removeHop: removeHop,
+      beerStyles: []
+    });
+
+    beerService.getStyles().then(function(response){
+      ctrl.beerStyles = response.data;
     });
 
     function submit() {

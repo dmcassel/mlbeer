@@ -14,6 +14,7 @@
     'app.root',
     'app.search',
     'app.user',
+    'app.beer',
     'ui.bootstrap',
     'ui.router',
     'ui.tinymce'
