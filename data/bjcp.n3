@@ -223,14 +223,209 @@ bjcp:ScottishAle rdfs:subClassOf bjcp:Beer ;
                  rdfs:label "Scottish Ale" .
 
 bjcp:ScottishLight rdfs:subClassOf bjcp:ScottishAle ;
-                   bjcp:subtype "A" ;
+                   bjcp:sub-type "A" ;
                    rdfs:label "Scottish Light" .
 
 bjcp:ScottishHeavy rdfs:subClassOf bjcp:ScottishAle ;
-                   bjcp:subtype "B" ;
+                   bjcp:sub-type "B" ;
                    rdfs:label "Scottish Heavy" .
 
 bjcp:ScottishExport rdfs:subClassOf bjcp:ScottishAle ;
-                   bjcp:subtype "C" ;
+                   bjcp:sub-type "C" ;
                    rdfs:label "Scottish Export" .
 
+bjcp:IrishBeer rdfs:subClassOf bjcp:Beer ;
+               bjcp:type 15 ;
+               rdfs:label "Irish Beer" .
+
+bjcp:IrishRedAle rdfs:subClassOf bjcp:IrishBeer ;
+                 bjcp:sub-type "A" ;
+                 rdfs:label "Irish Red Ale" .
+
+bjcp:IrishStout rdfs:subClassOf bjcp:IrishBeer ;
+                bjcp:sub-type "B" ;
+                rdfs:label "Irish Stout" .
+
+bjcp:IrishExtraStout rdfs:subClassOf bjcp:IrishBeer ;
+                     bjcp:sub-type "C" ;
+                     rdfs:label "Irish Extra Stout" .
+
+bjcp:DarkBritishBeer rdfs:subClassOf bjcp:Beer ;
+                     bjcp:type 16 ;
+                     rdfs:label "Dark British Beer" .
+
+bjcp:SweetStout rdfs:subClassOf bjcp:DarkBritishBeer ;
+                bjcp:sub-type "A" ;
+                rdfs:label "Sweet Stout" .
+
+bjcp:OatmealStout rdfs:subClassOf bjcp:DarkBritishBeer ;
+                bjcp:sub-type "B" ;
+                rdfs:label "Oatmeal Stout" .
+
+bjcp:TropicalStout rdfs:subClassOf bjcp:DarkBritishBeer ;
+                   bjcp:sub-type "C" ;
+                   rdfs:label "Tropical Stout" .
+
+bjcp:ForeignExtraStout rdfs:subClassOf bjcp:DarkBritishBeer ;
+                       bjcp:sub-type "D" ;
+                       rdfs:label "Foreign Extra Stout" .
+
+bjcp:StrongBritishAle rdfs:subClassOf bjcp:Beer ;
+                      bjcp:type 17 ;
+                      rdfs:label "Strong British Ale" .
+
+bjcp:BritishStrongAle rdfs:subClassOf bjcp:StrongBritishAle ;
+                      bjcp:sub-type "A" ;
+                      rdfs:label "British Strong Ale" .
+
+bjcp:OldAle rdfs:subClassOf bjcp:StrongBritishAle ;
+                            bjcp:sub-type "B" ;
+                            rdfs:label "Old Ale" .
+
+bjcp:WeeHeavy rdfs:subClassOf bjcp:StrongBritishAle ;
+                              bjcp:sub-type "C" ;
+                              rdfs:label "Wee Heavy" .
+
+bjcp:EnglishBarleywine rdfs:subClassOf bjcp:StrongBritishAle ;
+                       bjcp:sub-type "D" ;
+                       rdfs:label "English Barleywine" .
+
+bjcp:PaleAmericanAle rdfs:subClassOf bjcp:Beer ;
+                     bjcp:type 18 ;
+                     rdfs:label "Pale American Ale" .
+
+bjcp:BlondeAle rdfs:subClassOf bjcp:PaleAmericanAle ;
+               bjcp:sub-type "A" ;
+               rdfs:label "Blonde Ale" .
+
+bjcp:AmericanPaleAle rdfs:subClassOf bjcp:PaleAmericanAle ;
+                     bjcp:sub-type "B" ;
+                     rdfs:label "American Pale Ale" .
+
+bjcp:AmberAndBrownAmericanBeer rdfs:subClassOf bjcp:Beer ;
+                     bjcp:type 19 ;
+                     rdfs:label "Amber and Brown American Beer" .
+
+bjcp:AmericanAmberAle rdfs:subClassOf bjcp:AmberAndBrownAmericanBeer ;
+                      bjcp:sub-type "A" ;
+                      rdfs:label "American Amber Ale" .
+
+bjcp:CaliforniaCommon rdfs:subClassOf bjcp:AmberAndBrownAmericanBeer ;
+                     bjcp:sub-type "B" ;
+                     rdfs:label "California Common" .
+
+bjcp:AmericanBrownAle rdfs:subClassOf bjcp:AmberAndBrownAmericanBeer ;
+                     bjcp:sub-type "C" ;
+                     rdfs:label "American Brown Ale" .
+
+bjcp:AmericanPorterAndStout rdfs:subClassOf bjcp:Beer ;
+                     bjcp:type 20 ;
+                     rdfs:label "American Porter and Stout" .
+
+bjcp:AmericanPorter rdfs:subClassOf bjcp:AmericanPorterAndStout ;
+               bjcp:sub-type "A" ;
+               rdfs:label "American Porter" .
+
+bjcp:AmericanStout rdfs:subClassOf bjcp:AmericanPorterAndStout ;
+                     bjcp:sub-type "B" ;
+                     rdfs:label "American Stout" .
+
+bjcp:ImperialStout rdfs:subClassOf bjcp:AmericanPorterAndStout ;
+                     bjcp:sub-type "C" ;
+                     rdfs:label "ImperialStout" .
+
+bjcp:IPA rdfs:subClassOf bjcp:Beer ;
+    bjcp:type 21 ;
+    rdfs:label "IPA" .
+
+bjcp:AmericanIPA rdfs:subClassOf bjcp:IPA ;
+    bjcp:sub-type "A" ;
+    rdfs:label "American IPA" .
+
+bjcp:SpecialtyIPA rdfs:subClassOf bjcp:IPA ;
+    bjcp:sub-type "B" ;
+    rdfs:label "Specialty IPA" .
+
+bjcp:StrongAmericanAle rdfs:subClassOf bjcp:Beer ;
+    bjcp:type 22 ;
+    rdfs:label "Strong American Ale" .
+
+bjcp:DoubleIPA rdfs:subClassOf bjcp:StrongAmericanAle ;
+    bjcp:sub-type "A" ;
+    rdfs:label "Double IPA" .
+
+bjcp:AmericanStrongAle rdfs:subClassOf bjcp:StrongAmericanAle ;
+    bjcp:sub-type "B" ;
+    rdfs:label "American Strong Ale" .
+
+bjcp:AmericanBarleywine rdfs:subClassOf bjcp:StrongAmericanAle ;
+    bjcp:sub-type "C" ;
+    rdfs:label "American Barleywine" .
+
+bjcp:Wheatwine rdfs:subClassOf bjcp:StrongAmericanAle ;
+    bjcp:sub-type "D" ;
+    rdfs:label "Wheatwine" .
+
+bjcp:EuropeanSourAle rdfs:subClassOf bjcp:Beer ;
+    bjcp:type 23 ;
+    rdfs:label "European Sour Ale" .
+
+bjcp:BerlinerWeisse rdfs:subClassOf bjcp:EuropeanSourAle ;
+    bjcp:sub-type "A" ;
+    rdfs:label "Berliner Weisse" .
+
+bjcp:FlandersRedAle rdfs:subClassOf bjcp:EuropeanSourAle ;
+    bjcp:sub-type "B" ;
+    rdfs:label "Flanders Red Ale" .
+
+bjcp:OudBruin rdfs:subClassOf bjcp:EuropeanSourAle ;
+    bjcp:sub-type "C" ;
+    rdfs:label "Oud Bruin" .
+
+bjcp:Lambic rdfs:subClassOf bjcp:EuropeanSourAle ;
+    bjcp:sub-type "D" ;
+    rdfs:label "Lambic" .
+
+bjcp:Gueuze rdfs:subClassOf bjcp:EuropeanSourAle ;
+    bjcp:sub-type "E" ;
+    rdfs:label "Gueuze" .
+
+bjcp:FruitLambic rdfs:subClassOf bjcp:EuropeanSourAle ;
+    bjcp:sub-type "F" ;
+    rdfs:label "Fruit Lambic" .
+
+bjcp:BelgianAle rdfs:subClassOf bjcp:Beer ;
+    bjcp:type 24 ;
+    rdfs:label "Belgian Ale" .
+
+bjcp:Witbier rdfs:subClassOf bjcp:BelgianAle ;
+    bjcp:sub-type "A" ;
+    rdfs:label "Witbier" .
+
+bjcp:BelgianPaleAle rdfs:subClassOf bjcp:BelgianAle ;
+    bjcp:sub-type "B" ;
+    rdfs:label "Belgian Pale Ale" .
+
+bjcp:BièreDeGarde rdfs:subClassOf bjcp:BelgianAle ;
+    bjcp:sub-type "C" ;
+    rdfs:label "Bière de Garde" .
+
+bjcp:StrongBelgianAle rdfs:subClassOf bjcp:Beer ;
+    bjcp:type 25 ;
+    rdfs:label "Strong Belgian Ale" .
+
+bjcp:BelgianBlondAle rdfs:subClassOf bjcp:StrongBelgianAle ;
+    bjcp:sub-type "A" ;
+    rdfs:label "Belgian Blond Ale" .
+
+bjcp:Saison rdfs:subClassOf bjcp:StrongBelgianAle ;
+    bjcp:sub-type "B" ;
+    rdfs:label "Saison" .
+
+bjcp:BelgianGoldenStrongAle rdfs:subClassOf bjcp:StrongBelgianAle ;
+    bjcp:sub-type "C" ;
+    rdfs:label "Belgian Golden Strong Ale" .
+
+bjcp:HistoricalBeer rdfs:subClassOf bjcp:Beer ;
+    bjcp:type 27 ;
+    rdfs:label "Historical Beer" .

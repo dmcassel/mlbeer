@@ -1,4 +1,4 @@
-@prefix malt: <http://davidcassel.net/bjcp/guidelines/2015#> .
+@prefix malt: <http://davidcassel.net/beer/malt#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 malt:black-barley rdfs:subClassOf malt:Malt ;
@@ -40,6 +40,10 @@ malt:crystal-40 rdfs:subClassOf malt:Malt ;
 malt:crystal-60 rdfs:subClassOf malt:Malt ;
                 malt:lovibond 60 ;
                 rdfs:label "Crystal (60L°)" .
+
+malt:crystal-75 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 75 ;
+                rdfs:label "Crystal (75L°)" .
 
 malt:crystal-80 rdfs:subClassOf malt:Malt ;
                 malt:lovibond 80 ;
