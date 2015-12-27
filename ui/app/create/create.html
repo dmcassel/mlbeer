@@ -19,7 +19,7 @@
     <div class="form-group">
       <label class="col-sm-2 control-label">Description</label>
       <div class="col-sm-10">
-        <textarea class="form-control" ui-tinymce="ctrl.editorOptions" ng-model="ctrl.recipe.about"></textarea>
+        <textarea class="form-control" ui-tinymce="ctrl.editorOptions" ng-model="ctrl.recipe.description"></textarea>
       </div>
     </div>
     <div class="form-group">
@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label">Subtype</label>
-      <select class="col-sm-10" name="subtype">
+      <select class="col-sm-10" name="subtype" ng-model="ctrl.recipe.subtype">
         <option ng-repeat="subtype in ctrl.beerStyles[ctrl.recipe.style].subtypes" value="{{subtype.value}}">{{subtype.label}}</option>
       </select>
     </div>
@@ -71,7 +71,9 @@
       <div class="col-sm-10">
         <input type="number" ng-model="ctrl.newHop.aau"/>
         <span> AAUs of </span>
-        <input type="text" ng-model="ctrl.newHop.type"/>
+        <select ng-model="ctrl.newHop.iri">
+          <option ng-repeat="(iri, label) in ctrl.hops" value="{{iri}}">{{label}}</option>
+        </select>
         <span> with </span>
         <input type="number" ng-model="ctrl.newHop.remainingMinutes"/>
         <span> minutes remaining</span>
@@ -79,7 +81,7 @@
       </div>
       <div class="col-sm-10 col-sm-offset-2">
         <div class="tag btn btn-info" ng-repeat="hop in ctrl.recipe.hopAdditions">
-          <span>{{hop.aau}} AAUs of {{hop.type}} with {{hop.remainingMinutes}} minutes remaining</span>
+          <span>{{hop.aau}} AAUs of {{ctrl.hops[hop.iri]}} with {{hop.remainingMinutes}} minutes remaining</span>
           <span class="glyphicon glyphicon-remove-circle" ng-click="ctrl.removeHop($index)"></span>
         </div>
       </div>

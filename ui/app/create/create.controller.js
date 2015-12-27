@@ -24,12 +24,11 @@
       },
       newMalt: {
         iri: null,
-        label: null,
         pounds: null,
         remainingMinutes: 60
       },
       newHop: {
-        type: null,
+        iri: null,
         aau: null,
         remainingMinutes: 60
       },
@@ -45,26 +44,21 @@
       beerStyles: []
     });
 
-    beerService.getStyles().then(function(response){
+    beerService.getStyles().then(function(response) {
       ctrl.beerStyles = response.data;
     });
 
-    beerService.getMalts().then(function(response){
+    beerService.getMalts().then(function(response) {
       ctrl.malts = response.data;
     });
 
+    beerService.getHops().then(function(response) {
+      ctrl.hops = response.data;
+    });
 
     function submit() {
-      mlRest.createDocument(ctrl.recipe, {
-        format: 'json',
-        directory: '/content/',
-        extension: '.json',
-        collection: ['data', 'data/recipe']
-        // TODO: add read/update permissions here like this:
-        // 'perm:sample-role': 'read',
-        // 'perm:sample-role': 'update'
-      }).then(function(response) {
-        $state.go('root.view', { uri: response.replace(/(.*\?uri=)/, '') });
+      beerService.createRecipe(ctrl.recipe).then(function(response){
+        $state.go('root.view', { uri: response.data.uri });
       });
     }
 
@@ -74,7 +68,6 @@
       }
       ctrl.newMalt = {
         iri: null,
-        label: null,
         pounds: null,
         remainingMinutes: 60
       };
@@ -85,7 +78,7 @@
         ctrl.recipe.hopAdditions.push(ctrl.newHop);
       }
       ctrl.newHop = {
-        type: null,
+        iri: null,
         aau: null,
         remainingMinutes: 60
       };

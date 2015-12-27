@@ -81,7 +81,7 @@
         controller: 'DetailCtrl',
         controllerAs: 'ctrl',
         resolve: {
-          doc: function(MLRest, $stateParams) {
+          recipe: function(MLRest, $stateParams) {
             var uri = $stateParams.uri;
             return MLRest.getDocument(uri, { format: 'json' }).then(function(response) {
               return response;

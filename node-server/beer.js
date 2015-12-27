@@ -16,11 +16,76 @@ function setOptions(options) {
     });
 }
 
+function createRecipe(recipe) {
+  'use strict';
+
+  return db.documents.write({
+    documents: [
+      {
+        directory: '/recipes/',
+        extension: 'json',
+        contentType: 'application/json',
+        content: recipe,
+        collections: ['recipe', 'data']
+      }
+    ],
+    transform: 'create-recipe'
+  }
+  ).result();
+}
+
+function getRecipe(recipe) {
+  'use strict';
+
+  return db.documents.read(
+    {
+      uris: [recipe],
+      transform: ['recipe']
+    }
+  ).result();
+}
+
+function loadHops() {
+  'use strict';
+
+  var query =
+    'PREFIX hops: <http://davidcassel.net/beer/hops#>' +
+    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
+
+    'select ?hop ?label ' +
+    'where {' +
+    '  ?hop rdfs:subClassOf hops:Hop ;' +
+    '        rdfs:label ?label' +
+    '}';
+
+  var hops = new Promise(
+    function(resolve, reject) {
+      db.graphs.sparql('application/sparql-results+json', query).result()
+        .then(function(triples) {
+          // Revise structure to look like this:
+          // {
+          //   '<http://davidcassel.net/beer/hops#cascade-us>': 'Cascade (US)',
+          //   '<http://davidcassel.net/beer/malt#chinook>': 'Chinook'
+          // }
+          var hops = {};
+          triples.results.bindings.forEach(function(hop) {
+            hops[hop.hop.value] = hop.label.value;
+          });
+          resolve(hops);
+        })
+        .catch(function(error){
+          reject(error);
+        });
+    });
+
+  return hops;
+}
+
 function loadMalts() {
   'use strict';
 
   var query =
-    'PREFIX malt: <http://davidcassel.net/bjcp/guidelines/2015#>' +
+    'PREFIX malt: <http://davidcassel.net/beer/malt#>' +
     'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
 
     'select ?malt ?label ' +
@@ -33,8 +98,14 @@ function loadMalts() {
     function(resolve, reject) {
       db.graphs.sparql('application/sparql-results+json', query).result()
         .then(function(triples) {
+          // Revise structure to look like this:
+          // {
+          //   '<http://davidcassel.net/beer/malt#crystal-10>': 'Crystal (10L°)',
+          //   '<http://davidcassel.net/beer/malt#crystal-20>': 'Crystal (20L°)'
+          // }
           var malts = {};
           triples.results.bindings.forEach(function(malt) {
+            // malts[iri] = label
             malts[malt.malt.value] = malt.label.value;
           });
           resolve(malts);
@@ -99,6 +170,9 @@ function loadStyles() {
 
 module.exports = {
   setOptions: setOptions,
+  createRecipe: createRecipe,
+  getRecipe: getRecipe,
   loadStyles: loadStyles,
-  loadMalts: loadMalts
+  loadMalts: loadMalts,
+  loadHops: loadHops
 };

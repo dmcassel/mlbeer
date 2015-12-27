@@ -7,6 +7,20 @@
   BeerService.$inject = ['$rootScope', '$http', '$q'];
   function BeerService($rootScope, $http, $q) {
 
+    function createRecipe(recipe) {
+      return $http.post(
+        '/api/recipe',
+        recipe
+      );
+    }
+
+    function getRecipe(uri) {
+      return $http({
+        method: 'GET',
+        url: '/api/recipe?uri=' + uri
+      });
+    }
+
     function getStyles() {
       return $http({
         method: 'GET',
@@ -20,9 +34,20 @@
         url: '/api/beer/malts'
       });
     }
+
+    function getHops() {
+      return $http({
+        method: 'GET',
+        url: '/api/beer/hops'
+      });
+    }
+
     return {
+      createRecipe: createRecipe,
       getStyles: getStyles,
       getMalts: getMalts,
+      getHops: getHops,
+      getRecipe: getRecipe
     };
   }
 }());

@@ -147,6 +147,28 @@ router.get('/beer/malts', function(req, res) {
   });
 });
 
+router.get('/beer/hops', function(req, res) {
+  console.log('requested /beer/hops');
+  beer.loadHops().then(function(hops){
+    res.send(hops);
+  });
+});
+
+router.get('/recipe', function(req, res) {
+  console.log('asking for recipe: ' + req.query.uri);
+  beer.getRecipe(req.query.uri).then(function(documents) {
+    console.log('/recipe response: ' + JSON.stringify(documents));
+    res.send(documents[0].content);
+  });
+});
+
+router.post('/recipe', function(req, res) {
+  beer.createRecipe(req.body).then(function(response) {
+    res.send({uri: response.documents[0].uri});
+  });
+
+});
+
 router.get('/*', four0four.notFoundMiddleware);
 
 function noCache(response){
