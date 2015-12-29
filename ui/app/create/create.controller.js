@@ -4,9 +4,9 @@
   angular.module('app.create')
     .controller('CreateCtrl', CreateCtrl);
 
-  CreateCtrl.$inject = ['$scope', 'MLRest', '$state', 'userService', 'beerService'];
+  CreateCtrl.$inject = ['$scope', '$state', 'userService', 'beerService'];
 
-  function CreateCtrl($scope, mlRest, $state, userService, beerService) {
+  function CreateCtrl($scope, $state, userService, beerService) {
     var ctrl = this;
 
     angular.extend(ctrl, {
@@ -69,7 +69,7 @@
       ctrl.newMalt = {
         iri: null,
         pounds: null,
-        remainingMinutes: 60
+        remainingMinutes: parseInt(ctrl.recipe.boilTime)
       };
     }
 
@@ -80,7 +80,7 @@
       ctrl.newHop = {
         iri: null,
         aau: null,
-        remainingMinutes: 60
+        remainingMinutes: parseInt(ctrl.recipe.boilTime)
       };
     }
 
