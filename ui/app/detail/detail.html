@@ -1,7 +1,7 @@
 <div class="view">
   <h1>
-    <a href="recipe.content.beer.seeAlso">{{ctrl.recipe.name}}</a>
-    <button type="button" class="btn btn-default" id="edit">Edit</button>
+    <a href="ctrl.recipe.source">{{ctrl.recipe.name}}</a>
+    <button type="button" class="btn btn-default" id="edit" ng-click="ctrl.edit()">Edit</button>
   </h1>
   <p>
     <label>Original Gravity</label>
@@ -11,6 +11,8 @@
     <label>Boil Time</label>
     <span>{{ctrl.recipe.boilTime}}</span>
   </p>
+  <h2>Description</h2>
+  <p ng-bind-html="ctrl.recipe.description"></p>
   <h2>Malt</h2>
   <p ng-repeat="malt in ctrl.recipe.maltAdditions">
     <span>{{malt.label}}</span>

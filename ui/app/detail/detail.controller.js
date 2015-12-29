@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('app.detail')
+  angular.module('app.detail', ['ngSanitize'])
   .controller('DetailCtrl', DetailCtrl);
 
   DetailCtrl.$inject = ['$stateParams', 'beerService'];
@@ -10,7 +10,10 @@
     var uri = $stateParams.uri;
 
     angular.extend(ctrl, {
-      uri : uri
+      uri : uri,
+      edit: function() {
+        alert('click');
+      }
     });
 
     beerService.getRecipe(uri).then(function(response) {
