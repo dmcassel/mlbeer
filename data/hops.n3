@@ -55,6 +55,15 @@ hops:chinook rdfs:subClassOf hops:Hop ;
              hops:substitute hops:target-uk ;
              hops:flavor "Mild to medium-heavy, spicy, piney, and grapefruity." .
 
+hops:goldings-uk rdfs:subClassOf hops:Hop ;
+    rdfs:label "East Kent Goldings (UK)" ;
+    hops:min-alpha-acids 4 ;
+    hops:max-alpha-acids 5.5 ;
+    hops:substitute hops:progress-uk ;
+    hops:substitute hops:goldings-us ;
+    hops:substitute hops:whitbread-golding-variety ;
+    hops:flavor "Gentle, fragrant, and pleasant." .
+
 hops:magnum-de rdfs:subClassOf hops:Hop ;
     rdfs:label "Magnum (German)" ;
     hops:min-alpha-acids 12 ;
@@ -70,6 +79,67 @@ hops:magnum-us rdfs:subClassOf hops:Hop ;
     hops:substitute hops:northdown ;
     hops:substitute hops:northern-brewer ;
     hops:flavor "High alpha variety" .
+
+hops:mt-hood rdfs:subClassOf hops:Hop ;
+    rdfs:label "Mt. Hood" ;
+    hops:min-alpha-acids 3 ;
+    hops:max-alpha-acids 8 ;
+    hops:substitute hops:crystal ;
+    hops:substitute hops:strisslespalt-fr ;
+    hops:substitute hops:hersbrucker ;
+    hops:grown "US" ;
+    hops:flavor "Mild, pleasant, and clean, somewhat pungent and resiny." .
+
+hops:northern-brewer-de rdfs:subClassOf hops:Hop ;
+                        rdfs:label "Northern Brewer (German)" ;
+                        hops:min-alpha-acids 7 ;
+                        hops:max-alpha-acids 10 ;
+                        hops:substitute hops:chinook ;
+                        hops:substitute hops:northern-brewer-us ;
+                        hops:grown "DE" ;
+                        hops:flavor "Medium-strong with some wild tones." .
+
+hops:northern-brewer-us rdfs:subClassOf hops:Hop ;
+                        rdfs:label "Northern Brewer (US)" ;
+                        hops:min-alpha-acids 6 ;
+                        hops:max-alpha-acids 10 ;
+                        hops:substitute hops:chinook ;
+                        hops:substitute hops:nugget ;
+                        hops:grown "US" ;
+                        hops:flavor "Medium-strong with some wild tones." .
+
+hops:nugget rdfs:subClassOf hops:Hop ;
+    rdfs:label "Nugget" ;
+    hops:min-alpha-acids 11 ;
+    hops:max-alpha-acids 14.5 ;
+    hops:substitute hops:chinook ;
+    hops:substitute hops:columbus ;
+    hops:substitute hops:galena ;
+    hops:substitute hops:target-uk ;
+    hops:grown "US" ;
+    hops:flavor "Quite heavy and herbal." .
+
+hops:perle-de rdfs:subClassOf hops:Hop ;
+    rdfs:label "Perle (German)" ;
+    hops:min-alpha-acids 6 ;
+    hops:max-alpha-acids 8.5 ;
+    hops:substitute hops:northern-brewer-us ;
+    hops:substitute hops:northern-brewer-ge ;
+    hops:substitute hops:perle-us ;
+    hops:grown "DE" ;
+    hops:flavor "Moderately intense, good and hoppy, fruity and a little spicy." .
+
+hops:perle-us rdfs:subClassOf hops:Hop ;
+    rdfs:label "Perle (US)" ;
+    hops:min-alpha-acids 6 ;
+    hops:max-alpha-acids 9.5 ;
+    hops:substitute hops:northern-brewer-us ;
+    hops:substitute hops:northern-brewer-ge ;
+    hops:substitute hops:chinook ;
+    hops:substitute hops:cluster ;
+    hops:substitute hops:galena ;
+    hops:grown "US" ;
+    hops:flavor "Known for its aromatic and bittering properties, pleasant and slightly spicy." .
 
 hops:tettnang-de rdfs:subClassOf hops:Hop ;
                  rdfs:label "Tettnang (German)" ;
@@ -91,22 +161,3 @@ hops:tettnang-us rdfs:subClassOf hops:Hop ;
                  hops:substitute hops:santiam ;
                  hops:grown-in "US" ;
                  hops:flavor "An aromatic hop, mild and slightly spicy." .
-
-hops:northern-brewer-de rdfs:subClassOf hops:Hop ;
-                        rdfs:label "Northern Brewer (German)" ;
-                        hops:min-alpha-acids 7 ;
-                        hops:max-alpha-acids 10 ;
-                        hops:substitute hops:chinook ;
-                        hops:substitute hops:northern-brewer-us ;
-                        hops:grown "DE" ;
-                        hops:flavor "Medium-strong with some wild tones." .
-
-hops:northern-brewer-us rdfs:subClassOf hops:Hop ;
-                        rdfs:label "Northern Brewer (US)" ;
-                        hops:min-alpha-acids 6 ;
-                        hops:max-alpha-acids 10 ;
-                        hops:substitute hops:chinook ;
-                        hops:substitute hops:nugget ;
-                        hops:grown "US" ;
-                        hops:flavor "Medium-strong with some wild tones." .
-
