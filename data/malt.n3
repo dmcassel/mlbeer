@@ -1,6 +1,10 @@
 @prefix malt: <http://davidcassel.net/beer/malt#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+malt:2-row rdfs:subClassOf malt:Malt ;
+    malt:lovibond 1.8 ;
+    rdfs:label "2-Row" .
+
 malt:biscuit-be rdfs:subClassOf malt:Malt ;
     malt:lovibond 24 ;
     rdfs:label "Biscuit (Belgium)" .
@@ -12,6 +16,10 @@ malt:black-barley rdfs:subClassOf malt:Malt ;
 malt:black-patent rdfs:subClassOf malt:Malt ;
                   malt:lovibond 500 ;
                   rdfs:label "Black Patent" .
+
+malt:carapils rdfs:subClassOf malt:Malt ;
+               malt:lovibond 12 ;
+               rdfs:label "Cara-Pils Dextrin" .
 
 malt:chocolate rdfs:subClassOf malt:Malt ;
                malt:lovibond 350 ;
@@ -49,6 +57,10 @@ malt:crystal-120 rdfs:subClassOf malt:Malt ;
                  malt:lovibond 120 ;
                  rdfs:label "Crystal (120L°)" .
 
+malt:crystal-150 rdfs:subClassOf malt:Malt ;
+                 malt:lovibond 150 ;
+                 rdfs:label "Crystal (150L°)" .
+
 malt:flaked-wheat rdfs:subClassOf malt:Malt ;
                   malt:lovibond 2 ;
                   rdfs:label "Flaked Wheat" .
@@ -80,4 +92,8 @@ malt:special-b rdfs:subClassOf malt:Malt ;
 malt:special rdfs:subClassOf malt:Malt ;
     malt:lovibond 50 ;
     rdfs:label "Special Roast" .
+
+malt:wheat rdfs:subClassOf malt:Malt ;
+    malt:lovibond 2 ;
+    rdfs:label "Wheat" .
 

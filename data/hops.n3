@@ -37,6 +37,16 @@ hops:cascade-nz rdfs:subClassOf hops:Hop ;
                 hops:grown-in "NZ" ;
                 hops:flavor "Similar to US Cascade, has floral, citrus grapefruit character." .
 
+hops:challenger-uk rdfs:subClassOf hops:Hop ;
+                rdfs:label "Challenger (UK)" ;
+                hops:min-alpha-acids 6.5 ;
+                hops:max-alpha-acids 8.5 ;
+                hops:substitute hops:northern-brewer ;
+                hops:substitute hops:perle-us ;
+                hops:substitute hops:perle-de ;
+                hops:grown-in "UK" ;
+                hops:flavor "Mild to moderate, quite spicy." .
+
 hops:centennial rdfs:subClassOf hops:Hop ;
                 rdfs:label "Centennial" ;
                 hops:min-alpha-acids 8 ;
@@ -54,6 +64,15 @@ hops:chinook rdfs:subClassOf hops:Hop ;
              hops:substitute hops:nugget ;
              hops:substitute hops:target-uk ;
              hops:flavor "Mild to medium-heavy, spicy, piney, and grapefruity." .
+
+hops:first-gold-uk rdfs:subClassOf hops:Hop ;
+    rdfs:label "First Gold (UK)" ;
+    hops:min-alpha-acids 6.5 ;
+    hops:max-alpha-acids 8.5 ;
+    hops:substitute hops:crystal ;
+    hops:substitute hops:goldings-uk ;
+    hops:grown-in "UK" ;
+    hops:flavor "A little like Golding family; spicy." .
 
 hops:goldings-uk rdfs:subClassOf hops:Hop ;
     rdfs:label "East Kent Goldings (UK)" ;
