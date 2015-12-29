@@ -80,7 +80,7 @@
       ctrl.newHop = {
         iri: null,
         aau: null,
-        remainingMinutes: parseInt(ctrl.recipe.boilTime)
+        remainingMinutes: parseInt(ctrl.newHop.remainingMinutes)
       };
     }
 
