@@ -65,6 +65,10 @@ malt:flaked-wheat rdfs:subClassOf malt:Malt ;
                   malt:lovibond 2 ;
                   rdfs:label "Flaked Wheat" .
 
+malt:maris-otter rdfs:subClassOf malt:Malt ;
+    malt:lovibond 3 ;
+    rdfs:label "Maris Otter" .
+
 malt:munich-10 rdfs:subClassOf malt:Malt ;
                  malt:lovibond 10 ;
                  rdfs:label "Munich (10L°)" .
