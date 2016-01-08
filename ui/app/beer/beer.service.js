@@ -42,12 +42,20 @@
       });
     }
 
+    function getIngredientsByLevel(level) {
+      return $http({
+        method: 'GET',
+        url: '/api/ingredients?level=' + level
+      });
+    }
+
     return {
       createRecipe: createRecipe,
       getStyles: getStyles,
       getMalts: getMalts,
       getHops: getHops,
-      getRecipe: getRecipe
+      getRecipe: getRecipe,
+      getIngredientsByLevel: getIngredientsByLevel
     };
   }
 }());

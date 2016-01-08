@@ -45,6 +45,12 @@ function getRecipe(recipe) {
   ).result();
 }
 
+function getIngredientsByLevel(level) {
+  'use strict';
+
+
+}
+
 function loadHops() {
   'use strict';
 
@@ -172,6 +178,7 @@ module.exports = {
   setOptions: setOptions,
   createRecipe: createRecipe,
   getRecipe: getRecipe,
+  getIngredientsByLevel: getIngredientsByLevel,
   loadStyles: loadStyles,
   loadMalts: loadMalts,
   loadHops: loadHops

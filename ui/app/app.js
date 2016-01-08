@@ -7,6 +7,8 @@
     'ml.search.tpls',
     'ml.utils',
     'ngJsonExplorer',
+    'app.charts',
+    'app.chord',
     'app.create',
     'app.detail',
     'app.error',

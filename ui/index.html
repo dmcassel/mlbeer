@@ -32,7 +32,6 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="/bower_components/highlightjs/highlight.pack.js"></script>
@@ -52,6 +51,7 @@
     <script src="/bower_components/ng-json-explorer/dist/angular-json-explorer.js"></script>
     <script src="/bower_components/vkbeautify-wrapper/dist/vkbeautify.0.99.00.beta.js"></script>
     <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/d3/d3.js"></script>
     <!-- endbower -->
     <script src="/bower_components/tinymce-dist/themes/modern/theme.js"></script>
     <!-- endbuild -->
@@ -59,6 +59,10 @@
     <!-- build:js js/app.js -->
     <!-- inject:js -->
     <script src="/ui/app/beer/beer.module.js"></script>
+    <script src="/ui/app/charts/charts.module.js"></script>
+    <script src="/ui/app/charts/chord.module.js"></script>
+    <script src="/ui/app/charts/chordDirective.js"></script>
+    <script src="/ui/app/charts/matrixFactory.js"></script>
     <script src="/ui/app/create/create.module.js"></script>
     <script src="/ui/app/detail/detail.module.js"></script>
     <script src="/ui/app/detail/similar.module.js"></script>
@@ -71,6 +75,7 @@
     <script src="/ui/app/user/user.module.js"></script>
     <script src="/ui/app/app.js"></script>
     <script src="/ui/app/beer/beer.service.js"></script>
+    <script src="/ui/app/charts/charts.controller.js"></script>
     <script src="/ui/app/create/create.controller.js"></script>
     <script src="/ui/app/detail/detail.controller.js"></script>
     <script src="/ui/app/detail/similar-directive.js"></script>

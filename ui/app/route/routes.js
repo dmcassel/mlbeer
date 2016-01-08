@@ -69,6 +69,12 @@
           }
         }
       })
+      .state('root.charts', {
+        url: '/charts',
+        templateUrl: 'app/charts/charts.html',
+        controller: 'ChartsCtrl',
+        controllerAs: 'ctrl'
+      })
       .state('root.view', {
         url: '/detail{uri:path}',
         params: {

@@ -169,6 +169,12 @@ router.post('/recipe', function(req, res) {
 
 });
 
+router.get('/ingredients', function(req, res) {
+  beer.getIngredientsByLevel(req.query.level).then(function(ingredients){
+    res.send(ingredients);
+  });
+});
+
 router.get('/*', four0four.notFoundMiddleware);
 
 function noCache(response){

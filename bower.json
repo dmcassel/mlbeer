@@ -19,7 +19,8 @@
     "ml-utils": "withjam/ml-utils",
     "ng-json-explorer": "8c2a0f9104",
     "vkbeautify-wrapper": "*",
-    "angular-sanitize": "~1.4.8"
+    "angular-sanitize": "~1.4.8",
+    "d3": "~3.5.12"
   },
   "overrides": {
     "angular-highlightjs": {
