@@ -8,9 +8,9 @@ function lookupType(type, subtype) {
     'select ?type ?subtype ' +
     'where ' +
     '{' +
-    '  ?type bjcp:type 5 .' +
+    '  ?type bjcp:type ?bjcpType .' +
     '  ?subtype rdfs:subClassOf ?type .' +
-    '  ?subtype bjcp:sub-type "D"' +
+    '  ?subtype bjcp:sub-type ?bjcpSubtype' +
     '}',
     {
       "bjcpType": type,
