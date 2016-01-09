@@ -4,9 +4,9 @@
   angular.module('app.create')
     .controller('CreateCtrl', CreateCtrl);
 
-  CreateCtrl.$inject = ['$scope', '$state', 'userService', 'beerService'];
+  CreateCtrl.$inject = ['uri', '$scope', '$state', 'userService', 'beerService'];
 
-  function CreateCtrl($scope, $state, userService, beerService) {
+  function CreateCtrl(uri, $scope, $state, userService, beerService) {
     var ctrl = this;
 
     angular.extend(ctrl, {
@@ -56,10 +56,22 @@
       ctrl.hops = response.data;
     });
 
-    function submit() {
-      beerService.createRecipe(ctrl.recipe).then(function(response){
-        $state.go('root.view', { uri: response.data.uri });
+    if (uri !== undefined) {
+      beerService.getRecipe(uri).then(function(response) {
+        ctrl.recipe = response.data;
       });
+    }
+
+    function submit() {
+      if (uri === undefined) {
+        beerService.createRecipe(ctrl.recipe).then(function(response){
+          $state.go('root.view', { uri: response.data.uri });
+        });
+      } else {
+        beerService.updateRecipe(uri, ctrl.recipe).then(function(response){
+          $state.go('root.view', { uri: uri });
+        });
+      }
     }
 
     function addMalt() {

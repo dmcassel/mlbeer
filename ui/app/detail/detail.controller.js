@@ -3,8 +3,8 @@
   angular.module('app.detail', ['ngSanitize'])
   .controller('DetailCtrl', DetailCtrl);
 
-  DetailCtrl.$inject = ['$stateParams', 'beerService'];
-  function DetailCtrl($stateParams, beerService) {
+  DetailCtrl.$inject = ['$state', '$stateParams', 'beerService'];
+  function DetailCtrl($state, $stateParams, beerService) {
     var ctrl = this;
 
     var uri = $stateParams.uri;
@@ -12,7 +12,7 @@
     angular.extend(ctrl, {
       uri : uri,
       edit: function() {
-        alert('click');
+        $state.go('root.edit', { uri: uri });
       }
     });
 

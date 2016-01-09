@@ -34,6 +34,23 @@ function createRecipe(recipe) {
   ).result();
 }
 
+function updateRecipe(uri, recipe) {
+  'use strict';
+
+  return db.documents.write({
+    documents: [
+      {
+        uri: uri,
+        contentType: 'application/json',
+        content: recipe,
+        collections: ['recipe', 'data']
+      }
+    ],
+    transform: 'create-recipe'
+  }
+  ).result();
+}
+
 function getRecipe(recipe) {
   'use strict';
 
@@ -177,6 +194,7 @@ function loadStyles() {
 module.exports = {
   setOptions: setOptions,
   createRecipe: createRecipe,
+  updateRecipe: updateRecipe,
   getRecipe: getRecipe,
   getIngredientsByLevel: getIngredientsByLevel,
   loadStyles: loadStyles,

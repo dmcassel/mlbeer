@@ -166,7 +166,12 @@ router.post('/recipe', function(req, res) {
   beer.createRecipe(req.body).then(function(response) {
     res.send({uri: response.documents[0].uri});
   });
+});
 
+router.put('/recipe', function(req, res) {
+  beer.updateRecipe(req.query.uri, req.body).then(function(response) {
+    res.send({uri: response.documents[0].uri});
+  });
 });
 
 router.get('/ingredients', function(req, res) {

@@ -14,6 +14,13 @@
       );
     }
 
+    function updateRecipe(uri, recipe) {
+      return $http.put(
+        '/api/recipe?uri=' + uri,
+        recipe
+      );
+    }
+
     function getRecipe(uri) {
       return $http({
         method: 'GET',
@@ -51,6 +58,7 @@
 
     return {
       createRecipe: createRecipe,
+      updateRecipe: updateRecipe,
       getStyles: getStyles,
       getMalts: getMalts,
       getHops: getHops,

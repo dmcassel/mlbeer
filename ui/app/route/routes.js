@@ -64,6 +64,7 @@
         controller: 'CreateCtrl',
         controllerAs: 'ctrl',
         resolve: {
+          mode: 'create',
           stuff: function() {
             return null;
           }
@@ -92,6 +93,23 @@
             return MLRest.getDocument(uri, { format: 'json' }).then(function(response) {
               return response;
             });
+          }
+        }
+      })
+      .state('root.edit', {
+        url: '/detail{uri:path}/edit',
+        params: {
+          uri: {
+            squash: true,
+            value: null
+          }
+        },
+        templateUrl: 'app/create/create.html',
+        controller: 'CreateCtrl',
+        controllerAs: 'ctrl',
+        resolve: {
+          uri: function($stateParams) {
+            return $stateParams.uri;
           }
         }
       })
