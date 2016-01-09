@@ -37,17 +37,21 @@ function recipe(context, params, content)
   var typeInfo = sem.sparql(
     'PREFIX bjcp: <http://davidcassel.net/bjcp/guidelines/2015#>\n' +
     'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
-    'select ?typeLabel ?subtypeLabel \n' +
+    'select ?type ?typeLabel ?subtype ?subtypeLabel \n' +
     'where {\n' +
-    '  ?type rdfs:label ?typeLabel .\n' +
-    '  ?subtype rdfs:subClassOf ?type ;\n' +
-    '           rdfs:label ?subtypeLabel .\n' +
+    '  ?typeIRI rdfs:label ?typeLabel ;\n' +
+    '           bjcp:type ?type .\n' +
+    '  ?subtypeIRI rdfs:subClassOf ?typeIRI ;\n' +
+    '              bjcp:sub-type ?subtype ;\n' +
+    '              rdfs:label ?subtypeLabel .\n' +
     '}',
-    { 'subtype': sem.iri(content.root.classification.triple.object) }
+    { 'subtypeIRI': sem.iri(content.root.classification.triple.object) }
   );
   var types = typeInfo.next().value;
-  mutableDoc.type = types.typeLabel;
-  mutableDoc.subtype = types.subtypeLabel;
+  mutableDoc.style = xs.string(types.type);
+  mutableDoc.subtype = types.subtype;
+  mutableDoc.typeLabel = types.typeLabel;
+  mutableDoc.subtypeLabel = types.subtypeLabel;
 
   // Return the revised data
   return mutableDoc;
