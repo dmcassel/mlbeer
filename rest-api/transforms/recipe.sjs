@@ -34,6 +34,21 @@ function recipe(context, params, content)
 
   mutableDoc.maltAdditions = malts;
 
+  var typeInfo = sem.sparql(
+    'PREFIX bjcp: <http://davidcassel.net/bjcp/guidelines/2015#>\n' +
+    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
+    'select ?typeLabel ?subtypeLabel \n' +
+    'where {\n' +
+    '  ?type rdfs:label ?typeLabel .\n' +
+    '  ?subtype rdfs:subClassOf ?type ;\n' +
+    '           rdfs:label ?subtypeLabel .\n' +
+    '}',
+    { 'subtype': sem.iri(content.root.classification.triple.object) }
+  );
+  var types = typeInfo.next().value;
+  mutableDoc.type = types.typeLabel;
+  mutableDoc.subtype = types.subtypeLabel;
+
   // Return the revised data
   return mutableDoc;
 }
