@@ -1,6 +1,6 @@
 <div class="view">
   <h1>
-    <a href="ctrl.recipe.source">{{ctrl.recipe.name}}</a>
+    <a ng-href="{{ctrl.recipe.source}}">{{ctrl.recipe.name}}</a>
     <button type="button" class="btn btn-default" id="edit" ng-click="ctrl.edit()">Edit</button>
   </h1>
   <h3>
@@ -18,9 +18,10 @@
   <p ng-bind-html="ctrl.recipe.description"></p>
   <h2>Malt</h2>
   <p ng-repeat="malt in ctrl.recipe.maltAdditions">
-    <span>{{malt.label}}</span>
     <span>{{malt.pounds}}</span>
-    <span>Pounds at</span>
+    <span>Pounds of</span>
+    <span>{{malt.label}}</span>
+    <span>with</span>
     <span>{{malt.remainingMinutes}}</span>
     <span>minutes remaining</span>
   </p>
