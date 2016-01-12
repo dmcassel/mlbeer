@@ -1,0 +1,103 @@
+@prefix malt: <http://davidcassel.net/beer/malt#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+malt:2-row rdfs:subClassOf malt:Malt ;
+    malt:lovibond 1.8 ;
+    rdfs:label "2-Row" .
+
+malt:biscuit-be rdfs:subClassOf malt:Malt ;
+    malt:lovibond 24 ;
+    rdfs:label "Biscuit (Belgium)" .
+
+malt:black-barley rdfs:subClassOf malt:Malt ;
+                  malt:lovibond 525 ;
+                  rdfs:label "Black Barley" .
+
+malt:black-patent rdfs:subClassOf malt:Malt ;
+                  malt:lovibond 500 ;
+                  rdfs:label "Black Patent" .
+
+malt:carapils rdfs:subClassOf malt:Malt ;
+               malt:lovibond 12 ;
+               rdfs:label "Cara-Pils Dextrin" .
+
+malt:chocolate rdfs:subClassOf malt:Malt ;
+               malt:lovibond 350 ;
+               rdfs:label "Chocolate" .
+
+malt:crystal-10 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 10 ;
+                rdfs:label "Crystal (10L°)" .
+
+malt:crystal-20 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 20 ;
+                rdfs:label "Crystal (20L°)" .
+
+malt:crystal-30 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 30 ;
+                rdfs:label "Crystal (30L°)" .
+
+malt:crystal-40 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 40 ;
+                rdfs:label "Crystal (40L°)" .
+
+malt:crystal-60 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 60 ;
+                rdfs:label "Crystal (60L°)" .
+
+malt:crystal-75 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 75 ;
+                rdfs:label "Crystal (75L°)" .
+
+malt:crystal-80 rdfs:subClassOf malt:Malt ;
+                malt:lovibond 80 ;
+                rdfs:label "Crystal (80L°)" .
+
+malt:crystal-120 rdfs:subClassOf malt:Malt ;
+                 malt:lovibond 120 ;
+                 rdfs:label "Crystal (120L°)" .
+
+malt:crystal-150 rdfs:subClassOf malt:Malt ;
+                 malt:lovibond 150 ;
+                 rdfs:label "Crystal (150L°)" .
+
+malt:flaked-wheat rdfs:subClassOf malt:Malt ;
+                  malt:lovibond 2 ;
+                  rdfs:label "Flaked Wheat" .
+
+malt:maris-otter rdfs:subClassOf malt:Malt ;
+    malt:lovibond 3 ;
+    rdfs:label "Maris Otter" .
+
+malt:munich-10 rdfs:subClassOf malt:Malt ;
+                 malt:lovibond 10 ;
+                 rdfs:label "Munich (10L°)" .
+
+malt:munich-20 rdfs:subClassOf malt:Malt ;
+                 malt:lovibond 20 ;
+                 rdfs:label "Munich (20L°)" .
+
+malt:pale-ale rdfs:subClassOf malt:Malt ;
+              malt:lovibond 1.8 ;
+              rdfs:label "Pale Ale" .
+
+malt:pilsner rdfs:subClassOf malt:Malt ;
+             malt:lovibond 1.5 ;
+              rdfs:label "Pilsner" .
+
+malt:roasted-barley rdfs:subClassOf malt:Malt ;
+    malt:lovibond 300 ;
+    rdfs:label "Roasted Barley" .
+
+malt:special-b rdfs:subClassOf malt:Malt ;
+    malt:lovibond 175 ;
+    rdfs:label "Special B" .
+
+malt:special rdfs:subClassOf malt:Malt ;
+    malt:lovibond 50 ;
+    rdfs:label "Special Roast" .
+
+malt:wheat rdfs:subClassOf malt:Malt ;
+    malt:lovibond 2 ;
+    rdfs:label "Wheat" .
+
