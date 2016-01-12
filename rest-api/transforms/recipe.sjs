@@ -18,7 +18,7 @@ function transformAdditions(predicate, recipeIRI, additions) {
   );
   labels = {};
   for (var triple of triples) {
-    labels[triple.malt] = triple.label;
+    labels[triple.ingredient] = triple.label;
   }
 
   var ingredients = [];
@@ -28,7 +28,7 @@ function transformAdditions(predicate, recipeIRI, additions) {
       mutable.label = labels[additions[prop].triple.object];
       mutable.iri = mutable.triple.object;
       delete mutable.triple;
-      triple.push(mutable);
+      ingredients.push(mutable);
     }
   }
 
