@@ -64,9 +64,8 @@
         controller: 'CreateCtrl',
         controllerAs: 'ctrl',
         resolve: {
-          mode: 'create',
-          stuff: function() {
-            return null;
+          uri: function($stateParams) {
+            return $stateParams.uri;
           }
         }
       })
