@@ -92,6 +92,12 @@
     </range>
   </constraint>
 
+  <extract-document-data>
+    <extract-path>
+      /name
+    </extract-path>
+  </extract-document-data>
+
   <!-- example facet constraint below -->
   <!--
   <constraint name="myconstraint">
