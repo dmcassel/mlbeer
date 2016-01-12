@@ -36,6 +36,38 @@ function recipe(context, params, content)
 
   mutableDoc.maltAdditions = malts;
 
+  var hopTriples = sem.sparql(
+    'PREFIX dcbeer: <http://davidcassel.net/beer#>\n' +
+    'PREFIX hops: <http://davidcassel.net/beer/hops#>\n' +
+    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
+    'select ?hop ?label ' +
+    'where {'+
+    '  ?recipeIRI hops:addition ?hop .'+
+    '  ?hop rdfs:label ?label'+
+    '}',
+    { "recipeIRI": sem.iri(content.root.classification.triple.subject) }
+  );
+  hopLabels = {};
+  for (var hop of hopTriples) {
+    hopLabels[hop.hop] = hop.label;
+  }
+
+  xdmp.log('hop labels: ' + JSON.stringify(hopLabels));
+
+  var hops = [];
+  var additions = content.root.hopAdditions;
+  for (var hop in additions) {
+    if (additions.hasOwnProperty(hop)) {
+      var mutable = additions[hop].toObject();
+      mutable.label = hopLabels[additions[hop].triple.object];
+      mutable.iri = mutable.triple.object;
+      delete mutable.triple;
+      hops.push(mutable);
+    }
+  }
+
+  mutableDoc.hopAdditions = hops;
+
   var typeInfo = sem.sparql(
     'PREFIX bjcp: <http://davidcassel.net/bjcp/guidelines/2015#>\n' +
     'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +

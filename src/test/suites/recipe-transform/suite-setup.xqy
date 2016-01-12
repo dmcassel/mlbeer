@@ -105,3 +105,4 @@ xdmp:document-insert(
 
 sem:rdf-load("/Users/dcassel/git/mlbeer/src/test/suites/recipe-transform/test-data/bjcp.n3"),
 sem:rdf-load("/Users/dcassel/git/mlbeer/src/test/suites/recipe-transform/test-data/malt.n3")
+sem:rdf-load("/Users/dcassel/git/mlbeer/src/test/suites/recipe-transform/test-data/hops.n3")
