@@ -1,72 +1,56 @@
 // Denormalize some triples
 
-function recipe(context, params, content)
-{
+// For each addition, instead of sending the triple that connects this recipe
+// to the IRI of an ingredient, send the ingredient's IRI and label.
+function transformAdditions(predicate, recipeIRI, additions) {
+  var triples = sem.sparql(
+    'PREFIX dcbeer: <http://davidcassel.net/beer#>\n' +
+    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
+    'select ?ingredient ?label ' +
+    'where {'+
+    '  ?recipeIRI ?predicate ?ingredient .'+
+    '  ?ingredient rdfs:label ?label'+
+    '}',
+    {
+      'predicate': predicate,
+      'recipeIRI': recipeIRI
+    }
+  );
+  labels = {};
+  for (var triple of triples) {
+    labels[triple.malt] = triple.label;
+  }
+
+  var ingredients = [];
+  for (var prop in additions) {
+    if (additions.hasOwnProperty(prop)) {
+      var mutable = additions[prop].toObject();
+      mutable.label = labels[additions[prop].triple.object];
+      mutable.iri = mutable.triple.object;
+      delete mutable.triple;
+      triple.push(mutable);
+    }
+  }
+
+  return ingredients;
+}
+
+function recipe(context, params, content) {
   // content is the document that has been read.
   // Turn it into a JS object
   var mutableDoc = content.toObject();
 
-  var maltTriples = sem.sparql(
-    'PREFIX dcbeer: <http://davidcassel.net/beer#>\n' +
-    'PREFIX malt: <http://davidcassel.net/beer/malt#>\n' +
-    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
-    'select ?malt ?label ' +
-    'where {'+
-    '  ?recipeIRI malt:addition ?malt .'+
-    '  ?malt rdfs:label ?label'+
-    '}',
-    { "recipeIRI": sem.iri(content.root.classification.triple.subject) }
-  );
-  maltLabels = {};
-  for (var malt of maltTriples) {
-    maltLabels[malt.malt] = malt.label;
-  }
+  var recipeIRI = sem.iri(content.root.classification.triple.subject);
 
-  var malts = [];
-  var additions = content.root.maltAdditions;
-  for (var malt in additions) {
-    if (additions.hasOwnProperty(malt)) {
-      var mutable = additions[malt].toObject();
-      mutable.label = maltLabels[additions[malt].triple.object];
-      mutable.iri = mutable.triple.object;
-      delete mutable.triple;
-      malts.push(mutable);
-    }
-  }
+  mutableDoc.maltAdditions = transformAdditions(
+    sem.iri('http://davidcassel.net/beer/malt#addition'),
+    recipeIRI,
+    content.root.maltAdditions);
 
-  mutableDoc.maltAdditions = malts;
-
-  var hopTriples = sem.sparql(
-    'PREFIX dcbeer: <http://davidcassel.net/beer#>\n' +
-    'PREFIX hops: <http://davidcassel.net/beer/hops#>\n' +
-    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
-    'select ?hop ?label ' +
-    'where {'+
-    '  ?recipeIRI hops:addition ?hop .'+
-    '  ?hop rdfs:label ?label'+
-    '}',
-    { "recipeIRI": sem.iri(content.root.classification.triple.subject) }
-  );
-  hopLabels = {};
-  for (var hop of hopTriples) {
-    hopLabels[hop.hop] = hop.label;
-  }
-
-  xdmp.log('hop labels: ' + JSON.stringify(hopLabels));
-
-  var hops = [];
-  var additions = content.root.hopAdditions;
-  for (var hop in additions) {
-    if (additions.hasOwnProperty(hop)) {
-      var mutable = additions[hop].toObject();
-      mutable.label = hopLabels[additions[hop].triple.object];
-      mutable.iri = mutable.triple.object;
-      delete mutable.triple;
-      hops.push(mutable);
-    }
-  }
-
-  mutableDoc.hopAdditions = hops;
+  mutableDoc.hopAdditions = transformAdditions(
+    sem.iri('http://davidcassel.net/beer/hops#addition'),
+    recipeIRI,
+    content.root.hopAdditions);
 
   var typeInfo = sem.sparql(
     'PREFIX bjcp: <http://davidcassel.net/bjcp/guidelines/2015#>\n' +
