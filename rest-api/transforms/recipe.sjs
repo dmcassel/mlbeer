@@ -28,6 +28,8 @@ function recipe(context, params, content)
     if (additions.hasOwnProperty(malt)) {
       var mutable = additions[malt].toObject();
       mutable.label = maltLabels[additions[malt].triple.object];
+      mutable.iri = mutable.triple.object;
+      delete mutable.triple;
       malts.push(mutable);
     }
   }
