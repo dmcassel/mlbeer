@@ -65,7 +65,47 @@ function getRecipe(recipe) {
 function getIngredientsByLevel(level) {
   'use strict';
 
+  var query =
+    'PREFIX bjcp: <http://davidcassel.net/bjcp/guidelines/2015#>\n' +
+    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
 
+    'select ?styleLabel (count (?malt) as ?maltCt) ?maltLabel\n' +
+    'where {\n' +
+    '  ?beertype rdfs:subClassOf bjcp:Beer ;\n' +
+    '      rdfs:label ?styleLabel .\n' +
+    '  ?subtype rdfs:subClassOf ?beertype ;\n' +
+    '      rdfs:label ?subtypeLabel .\n' +
+
+    '  ?recipe <http://www.w3.org/2000/01/rdf-schema#type> ?subtype ;\n' +
+    '     <http://davidcassel.net/beer/malt#addition> ?malt .\n' +
+    '  ?malt rdfs:label ?maltLabel\n' +
+    '}\n' +
+    'group by ?beertype ?malt';
+
+  var ingredients = [];
+
+  var promise = new Promise(
+    function(resolve, reject) {
+      db.graphs.sparql('application/sparql-results+json', query).result()
+        .then(function(triples) {
+          triples.results.bindings.forEach(function(addition) {
+            ingredients.push({
+              'style': addition.styleLabel.value,
+              'ingredient': addition.maltLabel.value,
+              'flow1': addition.maltCt.value,
+              'flow2': addition.maltCt.value
+            });
+          });
+
+          resolve(ingredients);
+        })
+        .catch(function(error){
+          reject(error);
+        });
+    }
+  );
+
+  return promise;
 }
 
 function loadHops() {
