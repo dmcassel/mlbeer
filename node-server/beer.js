@@ -65,39 +65,52 @@ function getRecipe(recipe) {
 function getIngredientsByLevel(level) {
   'use strict';
 
-  var query =
-    'PREFIX bjcp: <http://davidcassel.net/bjcp/guidelines/2015#>\n' +
-    'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
+  function getIngredient(level, ingredient) {
+    var query =
+      'PREFIX bjcp: <http://davidcassel.net/bjcp/guidelines/2015#>\n' +
+      'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n' +
 
-    'select ?styleLabel (count (?malt) as ?maltCt) ?maltLabel\n' +
-    'where {\n' +
-    '  ?beertype rdfs:subClassOf bjcp:Beer ;\n' +
-    '      rdfs:label ?styleLabel .\n' +
-    '  ?subtype rdfs:subClassOf ?beertype ;\n' +
-    '      rdfs:label ?subtypeLabel .\n' +
+      'select ?styleLabel (count (?ingredient) as ?ingredientCt) ?ingredientLabel\n' +
+      'where {\n' +
+      '  ?beertype rdfs:subClassOf bjcp:Beer ;\n' +
+      '      rdfs:label ?styleLabel .\n' +
+      '  ?subtype rdfs:subClassOf ?beertype ;\n' +
+      '      rdfs:label ?subtypeLabel .\n' +
 
-    '  ?recipe <http://www.w3.org/2000/01/rdf-schema#type> ?subtype ;\n' +
-    '     <http://davidcassel.net/beer/malt#addition> ?malt .\n' +
-    '  ?malt rdfs:label ?maltLabel\n' +
-    '}\n' +
-    'group by ?beertype ?malt';
+      '  ?recipe <http://www.w3.org/2000/01/rdf-schema#type> ?subtype ;\n' +
+      '     <http://davidcassel.net/beer/' + ingredient + '#addition> ?ingredient .\n' +
+      '  ?ingredient rdfs:label ?ingredientLabel\n' +
+      '}\n' +
+      'group by ?beertype ?ingredient';
+
+    return db.graphs.sparql('application/sparql-results+json', query).result();
+  }
 
   var ingredients = [];
 
+  function buildIngredients(triples) {
+    triples.results.bindings.forEach(function(addition) {
+      var ingredient = {
+        'style': addition.styleLabel.value,
+        'ingredient': addition.ingredientLabel.value,
+        'flow1': addition.ingredientCt.value,
+        'flow2': addition.ingredientCt.value
+      };
+      ingredients.push(ingredient);
+    });
+  }
+
   var promise = new Promise(
     function(resolve, reject) {
-      db.graphs.sparql('application/sparql-results+json', query).result()
+      getIngredient(level, 'malt')
         .then(function(triples) {
-          triples.results.bindings.forEach(function(addition) {
-            ingredients.push({
-              'style': addition.styleLabel.value,
-              'ingredient': addition.maltLabel.value,
-              'flow1': addition.maltCt.value,
-              'flow2': addition.maltCt.value
-            });
-          });
+          buildIngredients(triples);
 
-          resolve(ingredients);
+          getIngredient(level, 'hops')
+            .then(function(triples) {
+              buildIngredients(triples);
+              resolve(ingredients);
+            });
         })
         .catch(function(error){
           reject(error);
