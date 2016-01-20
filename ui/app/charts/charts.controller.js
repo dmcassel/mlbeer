@@ -1,5 +1,3 @@
-/* global d3 */
-
 (function () {
   'use strict';
 
@@ -15,22 +13,8 @@
 
         $scope.master = {}; // MASTER DATA STORED BY YEAR
 
-        $scope.selectedYear = 1870;
-        $scope.years = d3.range(2005, 1865, -5);
-
         $scope.filters = {};
         $scope.hasFilters = false;
-
-        $scope.tooltip = {};
-
-        // FORMATS USED IN TOOLTIP TEMPLATE IN HTML
-        $scope.pFormat = d3.format('.1%');  // PERCENT FORMAT
-        $scope.qFormat = d3.format(',.0f'); // COMMAS FOR LARGE NUMBERS
-
-        $scope.updateTooltip = function (data) {
-          $scope.tooltip = data;
-          $scope.$apply();
-        };
 
         $scope.addFilter = function (name) {
           $scope.hasFilters = true;
