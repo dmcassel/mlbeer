@@ -1,8 +1,12 @@
+/* global d3 */
+
 angular.module('app.chord').factory('matrixFactory', [function () {
+
+  'use strict';
 
   var chordMatrix = function () {
 
-    var _matrix = [], dataStore = [], _id = 0;
+    var _matrix = [], dataStore = [];
     var matrixIndex = [], indexHash = {};
     var chordLayout, layoutCache;
 
@@ -12,7 +16,8 @@ angular.module('app.chord').factory('matrixFactory', [function () {
     var matrix = {};
 
     matrix.update = function () {
-      _matrix = [], objs = [], entry = {};
+      _matrix = [];
+      var objs = [], entry = {};
 
       layoutCache = {groups: {}, chords: {}};
 
@@ -49,7 +54,7 @@ angular.module('app.chord').factory('matrixFactory', [function () {
             return filter(obj, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
           });
           entry = reduce(objs, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
-          entry.valueOf = function () { return +this.value };
+          entry.valueOf = function () { return +this.value; };
           _matrix[i][j] = entry;
         }
       }
@@ -72,8 +77,8 @@ angular.module('app.chord').factory('matrixFactory', [function () {
       return this;
     };
 
-    matrix.layout = function (d3_chordLayout) {
-      chordLayout = d3_chordLayout;
+    matrix.layout = function (d3ChordLayout) {
+      chordLayout = d3ChordLayout;
       return this;
     };
 
@@ -116,10 +121,10 @@ angular.module('app.chord').factory('matrixFactory', [function () {
     function chordID(d) {
       var s = matrixIndex[d.source.index];
       var t = matrixIndex[d.target.index];
-      return (s < t) ? s + "__" + t: t + "__" + s;
+      return (s < t) ? s + '__' + t: t + '__' + s;
     }
 
-    matrix.groupTween = function (d3_arc) {
+    matrix.groupTween = function (d3Arc) {
       return function (d, i) {
         var tween;
         var cached = layoutCache.groups[d._id];
@@ -134,12 +139,12 @@ angular.module('app.chord').factory('matrixFactory', [function () {
         }
 
         return function (t) {
-          return d3_arc(tween(t));
+          return d3Arc(tween(t));
         };
       };
     };
 
-    matrix.chordTween = function (d3_path) {
+    matrix.chordTween = function (d3Path) {
       return function (d, i) {
         var tween, groups;
         var cached = layoutCache.chords[d._id];
@@ -183,7 +188,7 @@ angular.module('app.chord').factory('matrixFactory', [function () {
         }
 
         return function (t) {
-          return d3_path(tween(t));
+          return d3Path(tween(t));
         };
       };
     };
