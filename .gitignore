@@ -12,3 +12,4 @@ local.json
 *.sublime-project
 *.sublime-workspace
 .tmp/
+npm-debug.log
