@@ -83,12 +83,20 @@
   </constraint>
 
   <!-- Example facet based on the sample-data -->
-  <constraint name="eyeColor">
-    <range type="xs:string" facet="true" collation="http://marklogic.com/collation/codepoint">
-      <facet-option>limit=5</facet-option>
+  <constraint name="style">
+    <range type="xs:int" facet="true">
+      <facet-option>limit=10</facet-option>
       <facet-option>frequency-order</facet-option>
       <facet-option>descending</facet-option>
-      <json-property>eyeColor</json-property>
+      <json-property>style</json-property>
+    </range>
+  </constraint>
+  <constraint name="subtype">
+    <range type="xs:string" facet="true" collation="http://marklogic.com/collation/codepoint">
+      <facet-option>limit=10</facet-option>
+      <facet-option>item-order</facet-option>
+      <facet-option>ascending</facet-option>
+      <json-property>subtype</json-property>
     </range>
   </constraint>
 
