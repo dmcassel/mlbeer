@@ -17,9 +17,17 @@ malt:black-patent rdfs:subClassOf malt:Malt ;
                   malt:lovibond 500 ;
                   rdfs:label "Black Patent" .
 
+malt:carahell rdfs:subClassOf malt:Malt ;
+    malt:lovibond 10 ;
+    rdfs:label "CaraHell®" .
+
 malt:carapils rdfs:subClassOf malt:Malt ;
                malt:lovibond 12 ;
                rdfs:label "Cara-Pils Dextrin" .
+
+malt:carastan rdfs:subClassOf malt:Malt ;
+               malt:lovibond 34 ;
+               rdfs:label "Carastan" .
 
 malt:chocolate rdfs:subClassOf malt:Malt ;
                malt:lovibond 350 ;
@@ -96,6 +104,10 @@ malt:special-b rdfs:subClassOf malt:Malt ;
 malt:special rdfs:subClassOf malt:Malt ;
     malt:lovibond 50 ;
     rdfs:label "Special Roast" .
+
+malt:vienna rdfs:subClassOf malt:Malt ;
+    malt:lovibond 3.6 ;
+    rdfs:label "Vienna" .
 
 malt:wheat rdfs:subClassOf malt:Malt ;
     malt:lovibond 2 ;

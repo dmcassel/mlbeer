@@ -83,6 +83,48 @@ hops:goldings-uk rdfs:subClassOf hops:Hop ;
     hops:substitute hops:whitbread-golding-variety ;
     hops:flavor "Gentle, fragrant, and pleasant." .
 
+hops:hallertauer-us rdfs:subClassOf hops:Hop ;
+    rdfs:label "Hallertauer (US)" ;
+    hops:min-alpha-acids 3.5 ;
+    hops:max-alpha-acids 5.5 ;
+    hops:substitute hops:hallertauer-tradition ;
+    hops:substitute hops:liberty ;
+    hops:substitute hops:ultra ;
+    hops:flavor "Very mild, pleasant, and slightly flowery, some spicy." .
+
+hops:hallertauer-gold rdfs:subClassOf hops:Hop ;
+    rdfs:label "Hallertauer Gold (German)" ;
+    hops:min-alpha-acids 6 ;
+    hops:max-alpha-acids 6.5 ;
+    hops:substitute hops:crystal ;
+    hops:substitute hops:mt-hood ;
+    hops:flavor "Known for its aromatic properties similar to Hallertauer." .
+
+hops:hallertauer-Mittelfrüh rdfs:subClassOf hops:Hop ;
+    rdfs:label "Hallertauer Mittelfrüh (German)" ;
+    hops:min-alpha-acids 3 ;
+    hops:max-alpha-acids 5.5 ;
+    hops:substitute hops:tradition-de ;
+    hops:substitute hops:liberty ;
+    hops:substitute hops:ultra ;
+    hops:flavor "Mild and pleasant." .
+
+hops:hallertauer-tradition rdfs:subClassOf hops:Hop ;
+    rdfs:label "Hallertauer Tradition (German)" ;
+    hops:min-alpha-acids 3.5 ;
+    hops:max-alpha-acids 5.5 ;
+    hops:substitute hops:crystal ;
+    hops:substitute hops:liberty ;
+    hops:flavor "Known for its aromatic properties. A replacement for Hallertauer Mittelfrüh." .
+
+hops:hersbrucker-de rdfs:subClassOf hops:Hop ;
+    rdfs:label "Hersbrucker (German)" ;
+    hops:min-alpha-acids 3 ;
+    hops:max-alpha-acids 5.5 ;
+    hops:substitute hops:Strisslespalt-fr ;
+    hops:substitute hops:mt-hood ;
+    hops:flavor "Mild to semi-strong, pleasant, hoppy." .
+
 hops:magnum-de rdfs:subClassOf hops:Hop ;
     rdfs:label "Magnum (German)" ;
     hops:min-alpha-acids 12 ;
@@ -159,6 +201,22 @@ hops:perle-us rdfs:subClassOf hops:Hop ;
     hops:substitute hops:galena ;
     hops:grown "US" ;
     hops:flavor "Known for its aromatic and bittering properties, pleasant and slightly spicy." .
+
+hops:saaz-us rdfs:subClassOf hops:Hop ;
+    rdfs:label "Saaz (US)" ;
+    hops:min-alpha-acids 3 ;
+    hops:max-alpha-acids 5 ;
+    hops:substitute hops:saaz-cz ;
+    hops:grown "US" ;
+    hops:flavor "Mild and pleasant, earthy and spicy." .
+
+hops:saaz-cz rdfs:subClassOf hops:Hop ;
+    rdfs:label "Saaz (Czech)" ;
+    hops:min-alpha-acids 3 ;
+    hops:max-alpha-acids 4.5 ;
+    hops:substitute hops:saaz-us ;
+    hops:grown "CZ" ;
+    hops:flavor "Very mild with pleasant hoppy notes, earthy, spicy, and herbal." .
 
 hops:tettnang-de rdfs:subClassOf hops:Hop ;
                  rdfs:label "Tettnang (German)" ;
