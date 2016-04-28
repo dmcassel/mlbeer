@@ -1,6 +1,6 @@
-# Contributing to Roxy
+# Contributing to mlbeer
 
-Roxy welcomes new contributors. This document will guide you
+mlbeer welcomes new contributors. This document will guide you
 through the process.
 
  - [Question or Problem?](#question)
@@ -9,9 +9,6 @@ through the process.
  - [Submission Guidelines](#submit)
  
 ## <a name="question"></a> Got a Question or Problem?
-
-If you have questions about how to use Roxy, please direct these to the
-[Roxy Mailing List][mailing list].
 
 ## <a name="issue"></a> Found an Issue?
 If you find a bug in the source code or a mistake in the documentation, you can help us by
@@ -35,25 +32,25 @@ chances of your issue being dealt with quickly:
 
 * **Overview of the Issue** - if an error is being thrown a stack trace helps
 * **Motivation for or Use Case** - explain why this is a bug for you
-* **Roxy Version** - is it a named version or from our dev branch
+* **mlbeer Version** - is it a named version or from our dev branch
 * **Operating System** - Mac, windows? details help
 * **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
   causing the problem (line of code or commit)
 
 ### Submitting a Pull Request
 
-#### Fork Roxy
+#### Fork mlbeer
 
-Fork the project [on GitHub](https://github.com/marklogic/roxy/fork) and clone
+Fork the project [on GitHub](https://github.com/dmcassel/mlbeer/fork) and clone
 your copy.
 
 ```sh
-$ git clone git@github.com:username/roxy.git
-$ cd roxy
-$ git remote add upstream git://github.com/marklogic/roxy.git
+$ git clone git@github.com:username/mlbeer.git
+$ cd mlbeer
+$ git remote add upstream git://github.com/dmcassel/mlbeer.git
 ```
 
-All bug fixes and new features go into the dev branch.
+All bug fixes and new features go into the master branch. It's a simple app. 
 
 We ask that you open an issue in the [issue tracker][] and get agreement from
 at least one of the project maintainers before you start coding.
@@ -68,7 +65,7 @@ Okay, so you have decided to fix something. Create a feature branch
 and start hacking:
 
 ```sh
-$ git checkout -b my-feature-branch -t origin/dev
+$ git checkout -b my-feature-branch -t origin/master
 ```
 
 #### Formatting code
@@ -118,13 +115,13 @@ Use `git rebase` (not `git merge`) to sync your work from time to time.
 
 ```sh
 $ git fetch upstream
-$ git rebase upstream/dev
+$ git rebase upstream/master
 ```
 
 
 #### Test your code
 
-We are working hard to improve Roxy's testing. If you add new functions
+We are working hard to improve mlbeer's testing. If you add new functions
 in ruby code then please write unit tests in the deploy/test directory.
 When finished, verify that the self-test works.
 
@@ -142,7 +139,7 @@ $ git push origin my-feature-branch
 
 #### Submit the pull request
 
-Go to https://github.com/username/roxy and select your feature branch. Click
+Go to https://github.com/username/mlbeer and select your feature branch. Click
 the 'Pull Request' button and fill out the form.
 
 Pull requests are usually reviewed within a few days. If you get comments
@@ -164,10 +161,10 @@ from the main (upstream) repository:
     git push origin --delete my-feature-branch
     ```
 
-* Check out the dev branch:
+* Check out the master branch:
 
     ```shell
-    git checkout dev -f
+    git checkout master -f
     ```
 
 * Delete the local branch:
@@ -176,12 +173,11 @@ from the main (upstream) repository:
     git branch -D my-feature-branch
     ```
 
-* Update your dev with the latest upstream version:
+* Update your master with the latest upstream version:
 
     ```shell
-    git pull --ff upstream dev
+    git pull --ff upstream master
     ```
 
-[issue tracker]: https://github.com/marklogic/roxy/issues
-[mailing list]: http://developer.marklogic.com/mailman/listinfo/roxy
+[issue tracker]: https://github.com/dmcassel/mlbeer/issues
 [.editorconfig]: http://editorconfig.org/
