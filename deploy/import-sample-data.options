@@ -3,3 +3,5 @@ import
 data
 -output_collections
 recipe,data
+-output_uri_replace
+".*data,''"
