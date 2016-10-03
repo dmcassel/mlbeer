@@ -21,9 +21,17 @@ malt:carahell rdfs:subClassOf malt:Malt ;
     malt:lovibond 10 ;
     rdfs:label "CaraHell®" .
 
+malt:caramunich rdfs:subClassOf malt:Malt ;
+                malt:lovibond 56 ;
+                rdfs:label "Caramunich" .
+
 malt:carapils rdfs:subClassOf malt:Malt ;
                malt:lovibond 12 ;
                rdfs:label "Cara-Pils Dextrin" .
+
+malt:caravienne rdfs:subClassOf malt:Malt ;
+                malt:lovibond 21 ;
+                rdfs:label "Caravienne" .
 
 malt:carastan rdfs:subClassOf malt:Malt ;
                malt:lovibond 34 ;
