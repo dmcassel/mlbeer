@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
+import { SearchResult } from '../search-result';
 
 @Component({
   selector: 'search-results',
@@ -9,7 +10,7 @@ import { SearchService } from '../search.service';
 })
 export class SearchResultsComponent implements OnInit {
 
-  results;
+  results: SearchResult[];
 
   constructor(searchService: SearchService) {
     this.results = searchService.getResults();
