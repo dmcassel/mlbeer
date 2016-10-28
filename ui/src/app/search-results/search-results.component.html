@@ -1,7 +1,11 @@
 <div class="search-results">
-  <ul>
-    <li *ngFor="let result of results">
-      <a href="{{result.href()}}">{{result.getExtractedResult('name')}}</a>
-    </li>
-  </ul>
+  <pagination></pagination>
+  <div *ngFor="let result of results">
+    <h4><a href="{{result.href()}}">{{result.getExtractedResult('name')}}</a></h4>
+    <div class="matches">
+      <div class="match" *ngFor="let match of result.getMatches()">
+        <div class="match-text" *ngFor="let text of match['match-text']">{{text}}</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -13,6 +13,19 @@ export class SearchService {
   getFacets() {
     return this.latestResponse.facets;
   }
+
+  getPageSize() {
+    return this.latestResponse['page-length'];
+  }
+
+  getCurrentPage() {
+    return 1;
+  }
+
+  getTotal() {
+    return this.latestResponse.total;
+  }
+
   constructor() {
     this.latestResponse =
       {

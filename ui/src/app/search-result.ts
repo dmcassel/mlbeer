@@ -20,4 +20,8 @@ export class SearchResult {
       return extracted[key];
     }
   }
+
+  getMatches() {
+    return this.result.matches;
+  }
 }

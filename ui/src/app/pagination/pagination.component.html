@@ -1,0 +1,19 @@
+<nav aria-label="Page navigation">
+  <div>{{maxPage}}</div>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li *ngFor="let page of pages">
+      <span *ngIf="page === currentPage">{{page}}</span>
+      <a href="#" *ngIf="page !== currentPage">{{page}}</a>
+    </li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
