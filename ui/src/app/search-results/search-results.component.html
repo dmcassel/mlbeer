@@ -1,6 +1,6 @@
 <div class="search-results">
   <pagination></pagination>
-  <div *ngFor="let result of results">
+  <div class="result" *ngFor="let result of results">
     <h4><a href="{{result.href()}}">{{result.getExtractedResult('name')}}</a></h4>
     <div class="matches">
       <div class="match" *ngFor="let match of result.getMatches()">

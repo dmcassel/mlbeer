@@ -2,3 +2,9 @@
 ul li {
   list-style: none;
 }
+
+.result {
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
