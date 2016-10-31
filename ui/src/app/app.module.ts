@@ -8,6 +8,7 @@ import { FacetListComponent } from './facet-list/facet-list.component';
 import { FacetComponent } from './facet/facet.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     FacetListComponent,
     FacetComponent,
     SearchResultsComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
