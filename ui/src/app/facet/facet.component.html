@@ -1,4 +1,7 @@
 <h3>{{name}}</h3>
 <ul>
-  <li *ngFor="let value of values">{{value.name}} ({{value.count}})</li>
+  <li (click)="onFacetClick($event)" *ngFor="let value of values">
+    <span class="display">{{value.name}}</span>
+    <span class="count">({{value.count}})</span>
+  </li>
 </ul>

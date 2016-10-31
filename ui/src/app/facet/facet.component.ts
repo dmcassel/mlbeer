@@ -15,4 +15,8 @@ export class FacetComponent implements OnInit {
   ngOnInit() {
   }
 
+  onFacetClick(event) {
+    console.log('I got clicked');
+  }
+
 }
